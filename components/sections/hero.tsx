@@ -12,7 +12,7 @@ const slides = [
     subtitle: 'Bring nature inside your space',
     description:
       'Elegant indoor plants designed for offices, homes, and luxury interiors.',
-    image: '/images/hero/indoor.jpg',
+    image: '/images/hero/indoor.jpeg',
     cta: '/products?category=plants',
   },
   {
