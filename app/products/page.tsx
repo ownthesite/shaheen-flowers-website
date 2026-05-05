@@ -1,52 +1,43 @@
-"use client";
+"use client"
 
-import { useState, useEffect, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
-import { Leaf, MessageCircle } from "lucide-react";
-import ProductCard from "@/components/cards/product-card";
-import { products } from "@/lib/products";
+import { useState, useEffect, Suspense, useMemo } from "react"
+import { useSearchParams } from "next/navigation"
+import { motion, AnimatePresence } from "framer-motion"
+import { Leaf } from "lucide-react"
+import ProductCard from "@/components/cards/product-card"
+import { products } from "@/lib/products"
+
+type Tab = "plants" | "planters"
 
 function ProductsView() {
-  const searchParams = useSearchParams();
+  const searchParams = useSearchParams()
 
-  const [active, setActive] = useState<"plants" | "planters">("plants");
-  const [direction, setDirection] = useState(0);
+  const [active, setActive] = useState<Tab>("plants")
 
   useEffect(() => {
-    const categoryParam = searchParams.get("category");
+    const categoryParam = searchParams.get("category")
     if (categoryParam === "planters") {
-      setActive("planters");
+      setActive("planters")
     } else {
-      setActive("plants");
+      setActive("plants")
     }
-  }, [searchParams]);
+  }, [searchParams])
 
-  const handleTabChange = (tab: "plants" | "planters") => {
-    if (tab === active) return;
+  const handleTabChange = (tab: Tab) => {
+    if (tab !== active) setActive(tab)
+  }
 
-    setDirection(tab === "plants" ? -1 : 1);
-    setActive(tab);
-  };
+  // ✅ Memoized filter (prevents unnecessary work)
+  const filteredProducts = useMemo(() => {
+    return products.filter((p) => p.category === active)
+  }, [active])
 
-  const filteredProducts = products.filter(
-    (p) => p.category === active
-  );
-
+  // ✅ Lightweight fade animation (no directional slide)
   const variants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? 100 : -100,
-      opacity: 0,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-    },
-    exit: (direction: number) => ({
-      x: direction > 0 ? -100 : 100,
-      opacity: 0,
-    }),
-  };
+    enter: { opacity: 0 },
+    center: { opacity: 1 },
+    exit: { opacity: 0 },
+  }
 
   return (
     <div className="min-h-screen bg-[#FAFAFA]">
@@ -87,26 +78,22 @@ function ProductsView() {
       <section className="py-24">
         <div className="max-w-6xl mx-auto px-6">
 
-          {/* ✅ TAB SWITCH (you were missing this) */}
+          {/* ✅ FIXED TAB SWITCH */}
           <div className="flex justify-center mb-16">
             <div className="relative inline-flex bg-stone-200/50 p-1.5 rounded-full">
 
-              {/* Sliding pill */}
+              {/* Smooth GPU transform */}
               <motion.div
-                layout
-                transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className="absolute top-1.5 bottom-1.5 bg-stone-900 rounded-full"
-                style={{
-                  width: "50%",
-                  left: active === "plants" ? "6px" : "calc(50% + 6px)",
-                }}
+                animate={{ x: active === "plants" ? 0 : "100%" }}
+                transition={{ type: "spring", stiffness: 260, damping: 25 }}
+                className="absolute top-1.5 bottom-1.5 left-1.5 w-[calc(50%-6px)] bg-stone-900 rounded-full"
               />
 
-              {["plants", "planters"].map((tab) => (
+              {(["plants", "planters"] as Tab[]).map((tab) => (
                 <button
                   key={tab}
-                  onClick={() => handleTabChange(tab as any)}
-                  className={`relative z-10 px-6 py-2 rounded-full text-sm font-medium transition-colors ${
+                  onClick={() => handleTabChange(tab)}
+                  className={`relative z-10 px-6 py-3 min-h-[44px] rounded-full text-sm font-medium transition-colors ${
                     active === tab ? "text-white" : "text-stone-600"
                   }`}
                 >
@@ -116,28 +103,24 @@ function ProductsView() {
             </div>
           </div>
 
-          {/* ✅ ANIMATED PRODUCT GRID (single source of truth) */}
-          <div className="relative overflow-hidden">
-            <AnimatePresence custom={direction} mode="wait">
+          {/* ✅ LIGHTWEIGHT GRID ANIMATION */}
+          <div className="relative">
+            <AnimatePresence mode="wait">
               <motion.div
                 key={active}
-                custom={direction}
                 variants={variants}
                 initial="enter"
                 animate="center"
                 exit="exit"
-                transition={{
-                  duration: 0.5,
-                  ease: [0.22, 1, 0.36, 1]  as const,
-                }}
+                transition={{ duration: 0.25 }}
               >
                 <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                   {filteredProducts.map((p, i) => (
                     <motion.div
                       key={i}
-                      initial={{ opacity: 0, scale: 0.95 }}
+                      initial={{ opacity: 0, scale: 0.96 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: i * 0.05 }}
+                      transition={{ duration: 0.2 }}
                     >
                       <ProductCard {...p} priority={i < 4} />
                     </motion.div>
@@ -158,7 +141,7 @@ function ProductsView() {
         </div>
       </section>
     </div>
-  );
+  )
 }
 
 export default function ProductsPage() {
@@ -166,5 +149,5 @@ export default function ProductsPage() {
     <Suspense fallback={<div className="p-10">Loading...</div>}>
       <ProductsView />
     </Suspense>
-  );
+  )
 }
