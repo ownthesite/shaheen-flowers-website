@@ -9,9 +9,15 @@ import { products } from "@/lib/products"
 
 type Tab = "plants" | "planters"
 
+// 1. ✅ Moved variants OUTSIDE the component so they aren't recreated on every render
+const containerVariants = {
+  enter: { opacity: 0 },
+  center: { opacity: 1 },
+  exit: { opacity: 0 },
+}
+
 function ProductsView() {
   const searchParams = useSearchParams()
-
   const [active, setActive] = useState<Tab>("plants")
 
   useEffect(() => {
@@ -27,25 +33,15 @@ function ProductsView() {
     if (tab !== active) setActive(tab)
   }
 
-  // ✅ Memoized filter (prevents unnecessary work)
   const filteredProducts = useMemo(() => {
     return products.filter((p) => p.category === active)
   }, [active])
 
-  // ✅ Lightweight fade animation (no directional slide)
-  const variants = {
-    enter: { opacity: 0 },
-    center: { opacity: 1 },
-    exit: { opacity: 0 },
-  }
-
   return (
     <div className="min-h-screen bg-[#FAFAFA]">
-
-      {/* HERO */}
+      {/* HERO SECTION KEEPS ITS ORIGINAL CODE */}
       <section className="relative py-32 md:py-40 bg-stone-950 text-white overflow-hidden flex items-center justify-center">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-[100px]" />
-
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -58,14 +54,12 @@ function ProductsView() {
                 Plants & Planters
               </span>
             </div>
-
             <h1 className="text-5xl md:text-7xl font-light tracking-tight mb-6">
               Curated For <br className="hidden md:block" />
               <span className="font-serif italic text-white/90">
                 Your Space
               </span>
             </h1>
-
             <p className="text-lg md:text-xl text-stone-400 max-w-2xl">
               Discover a refined selection of plants and premium planters designed
               to elevate your environment.
@@ -74,19 +68,16 @@ function ProductsView() {
         </div>
       </section>
 
-      {/* GRID */}
+      {/* GRID SECTION */}
       <section className="py-24">
         <div className="max-w-6xl mx-auto px-6">
-
-          {/* ✅ FIXED TAB SWITCH */}
           <div className="flex justify-center mb-16">
             <div className="relative inline-flex bg-stone-200/50 p-1.5 rounded-full">
-
-              {/* Smooth GPU transform */}
+              {/* 2. ✅ Added will-change to help the mobile GPU prepare for the slider animation */}
               <motion.div
                 animate={{ x: active === "plants" ? 0 : "100%" }}
                 transition={{ type: "spring", stiffness: 260, damping: 25 }}
-                className="absolute top-1.5 bottom-1.5 left-1.5 w-[calc(50%-6px)] bg-stone-900 rounded-full"
+                className="absolute top-1.5 bottom-1.5 left-1.5 w-[calc(50%-6px)] bg-stone-900 rounded-full will-change-transform"
               />
 
               {(["plants", "planters"] as Tab[]).map((tab) => (
@@ -97,47 +88,38 @@ function ProductsView() {
                     active === tab ? "text-white" : "text-stone-600"
                   }`}
                 >
-                  {tab}
+                  {tab.charAt(0).toUpperCase() + tab.slice(1)}
                 </button>
               ))}
             </div>
           </div>
 
-          {/* ✅ LIGHTWEIGHT GRID ANIMATION */}
-          <div className="relative">
-            <AnimatePresence mode="wait">
+          <div className="relative min-h-[500px]"> {/* 3. ✅ Added min-height to prevent layout thrashing */}
+            {/* 4. ✅ Switched to popLayout so the new grid doesn't wait for the old one to finish disappearing entirely */}
+            <AnimatePresence mode="popLayout">
               <motion.div
                 key={active}
-                variants={variants}
+                variants={containerVariants}
                 initial="enter"
                 animate="center"
                 exit="exit"
-                transition={{ duration: 0.25 }}
+                transition={{ duration: 0.2 }}
+                className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
               >
-                <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                  {filteredProducts.map((p, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, scale: 0.96 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <ProductCard {...p} priority={i < 4} />
-                    </motion.div>
-                  ))}
-                </div>
+                {filteredProducts.map((p, i) => (
+                  /* 5. ✅ Removed the heavy nested <motion.div> wrapper here */
+                  <ProductCard key={p.id || i} {...p} priority={i < 4} />
+                ))}
               </motion.div>
             </AnimatePresence>
           </div>
 
-          {/* EMPTY STATE */}
           {filteredProducts.length === 0 && (
             <div className="text-center py-20">
               <Leaf className="mx-auto mb-4 text-gray-400" />
               <p>No products found</p>
             </div>
           )}
-
         </div>
       </section>
     </div>
