@@ -108,7 +108,7 @@ function ProductsView() {
               >
                 {filteredProducts.map((p, i) => (
                   /* 5. ✅ Removed the heavy nested <motion.div> wrapper here */
-                  <ProductCard key={p.id || i} {...p} priority={i < 4} />
+                  <ProductCard key={i} {...p} priority={i < 4} />
                 ))}
               </motion.div>
             </AnimatePresence>
