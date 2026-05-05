@@ -13,31 +13,31 @@ type Testimonial = {
 
 export default function Testimonials() {
   const testimonials: Testimonial[] = [
-    {
-      name: 'Ahmed Al Mansoori',
-      location: 'Dubai, UAE',
-      role: 'Villa Owner',
-      rating: 5,
-      quote:
-        'OwnTheSite transformed our space into a complete outdoor experience. The detailing, vision, and execution were truly exceptional from start to finish.',
-    },
-    {
-      name: 'Fatima Al Hashimi',
-      location: 'Abu Dhabi, UAE',
-      role: 'Corporate Manager',
-      rating: 5,
-      quote:
-        'The botanical integrations completely elevated our workspace. Clean, professional, and meticulously maintained.',
-    },
-    {
-      name: 'Mohammed Al Bloushi',
-      location: 'Sharjah, UAE',
-      role: 'Restaurant Owner',
-      rating: 5,
-      quote:
-        'They understood our architectural vision and executed it better than expected. A masterclass in attention to detail.',
-    },
-  ]
+  {
+    name: 'Ahmed Al Mansoori',
+    location: 'Dubai, UAE',
+    role: 'Villa Owner',
+    rating: 5,
+    quote:
+      'We had a rough idea of what we wanted, but they really brought it to life. The whole space feels more thought-out now, not just decorated. Honestly, better than we expected.',
+  },
+  {
+    name: 'Fatima Al Hashimi',
+    location: 'Abu Dhabi, UAE',
+    role: 'Corporate Manager',
+    rating: 5,
+    quote:
+      'The office feels completely different now — calmer and more refined. Clients notice it immediately. Maintenance has also been smooth, which was important for us.',
+  },
+  {
+    name: 'Mohammed Al Bloushi',
+    location: 'Sharjah, UAE',
+    role: 'Restaurant Owner',
+    rating: 5,
+    quote:
+      'They understood the vibe we were going for without us over-explaining. Everything fits together naturally, and customers actually comment on the space now.',
+  },
+]
 
   const main = testimonials[0]
   const others = testimonials.slice(1)
@@ -56,7 +56,7 @@ export default function Testimonials() {
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } 
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const } 
     },
   }
 

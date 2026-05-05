@@ -12,7 +12,7 @@ const slides = [
     subtitle: 'Bring nature inside your space',
     description:
       'Elegant indoor plants designed for offices, homes, and luxury interiors.',
-    image: '/images/hero/indoor.jpeg',
+    image: '/images/hero/office.webp',
     cta: '/products?category=plants',
   },
   {
@@ -84,7 +84,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1]   as const }}
             >
               {/* Overline Subtitle */}
               <p className="text-[11px] md:text-xs font-bold tracking-[0.2em] uppercase text-stone-300 mb-4">

@@ -4,8 +4,7 @@ import { MessageCircle } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 export default function WhatsAppButton() {
-  const phoneNumber = '971552039009'
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20services.`
+  const whatsappUrl = `https://wa.me/971507750967?text=Hi%20Shaheen%20Flowers%2C%20I%27m%20interested%20in%20your%20services.%20Here%20are%20my%20details%3A%0A%0AName%3A%20%0APhone%3A%20%0ALocation%3A%20%0AService%20Needed%3A%20%0A%0APlease%20get%20back%20to%20me.`
 
   return (
     <motion.a

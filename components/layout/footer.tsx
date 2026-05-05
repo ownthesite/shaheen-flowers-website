@@ -106,7 +106,7 @@ export default function Footer() {
                     <Mail size={14} />
                   </div>
                   <p className="group-hover:text-white transition-colors duration-300">
-                    sales@shaheenflowers.com
+                    enquiry@shaheenflowers.ae
                   </p>
                 </a>
 

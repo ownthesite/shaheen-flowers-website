@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { fadeUp } from "@/lib/animations"
 
 type Project = {
   image: string
@@ -13,31 +14,23 @@ type Project = {
 export default function PortfolioPreview() {
   const projects: Project[] = [
     {
-      image: '/images/new/26.png',
+      image: '/images/new/26.webp',
       title: 'Modern Office Green Space',
       category: 'Commercial',
     },
     {
-      image: '/images/new/27.png',
+      image: '/images/new/27.webp',
       title: 'Indoor Plant Installation',
       category: 'Interior',
     },
     {
-      image: '/images/new/28.png',
+      image: '/images/new/28.webp',
       title: 'Residential Garden Design',
       category: 'Residential',
     },
   ]
 
-  // subtle motion
-  const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
-    },
-  }
+  
 
   return (
     <section className="py-32 bg-[#FAFAFA] border-t border-stone-200">

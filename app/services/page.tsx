@@ -4,7 +4,7 @@ import Image from 'next/image'
 import CTASection from '@/components/sections/cta-section'
 import { motion } from 'framer-motion'
 import { Leaf, RefreshCcw, ShieldCheck, Sparkles } from 'lucide-react'
-
+import { fadeUp } from "@/lib/animations"
 
 type Service = {
   title: string
@@ -46,38 +46,10 @@ export default function Services() {
     },
   ]
 
-    const features = [
-    {
-      icon: ShieldCheck,
-      title: 'Free Plant Replacement',
-      desc: 'We replace unhealthy plants at no cost, ensuring your space always looks fresh and vibrant.',
-    },
-    {
-      icon: Sparkles,
-      title: 'Custom Plant Styling',
-      desc: 'Each project is carefully designed to match your interior, architecture, and brand identity.',
-    },
-    {
-      icon: RefreshCcw,
-      title: 'Scheduled Maintenance',
-      desc: 'Regular care including watering, pruning, and monitoring for long-term plant health.',
-    },
-    {
-      icon: Leaf,
-      title: 'Premium Plant Quality',
-      desc: 'We source and maintain high-quality plants suited for indoor and outdoor environments.',
-    },
-  ]
+    
 
   // Animation variants
-  const fadeUpVariant = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } 
-    }
-  }
+ 
 
   return (
     <div className="bg-[#FAFAFA]">
@@ -88,6 +60,7 @@ export default function Services() {
         
         <div className="relative max-w-6xl mx-auto px-6 z-10 flex flex-col items-center text-center">
           <motion.div
+            
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -117,7 +90,7 @@ export default function Services() {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              variants={fadeUpVariant}
+              variants={fadeUp}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
@@ -167,51 +140,7 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="py-24 bg-stone-900 text-white">
-      <div className="max-w-6xl mx-auto px-6">
-
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h3 className="text-3xl md:text-5xl font-light tracking-tight mb-6">
-            Why Choose{' '}
-            <span className="font-serif italic text-green-400">
-              Shaheen Flowers
-            </span>
-          </h3>
-
-          <p className="text-stone-400 text-lg leading-relaxed">
-            More than installation — we provide complete plant care solutions to keep your spaces consistently green, healthy, and well-maintained.
-          </p>
-        </div>
-
-        {/* Features */}
-        <div className="grid md:grid-cols-4 gap-8">
-          {features.map((feature, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1, duration: 0.5 }}
-              className="group flex flex-col items-center text-center p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all"
-            >
-              <div className="w-14 h-14 rounded-full bg-stone-800 flex items-center justify-center mb-6 group-hover:bg-green-700 transition">
-                <feature.icon className="w-5 h-5 text-stone-300 group-hover:text-white transition" />
-              </div>
-
-              <h4 className="text-lg font-medium mb-3">
-                {feature.title}
-              </h4>
-
-              <p className="text-sm text-stone-400 leading-relaxed">
-                {feature.desc}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-
-      </div>
-    </section>
+      
       
 
       {/* CTA */}
