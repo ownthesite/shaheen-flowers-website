@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Leaf } from "lucide-react";
 import ProductCard from "@/components/cards/product-card";
 import { products } from "@/lib/products";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 type Tab = "plants" | "planters";
 
@@ -16,7 +17,7 @@ export default function ProductsPage() {
   useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 768px)");
     setIsDesktop(mediaQuery.matches);
-    
+
     const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
     mediaQuery.addEventListener("change", handler);
     return () => mediaQuery.removeEventListener("change", handler);
@@ -59,42 +60,80 @@ export default function ProductsPage() {
       {/* GRID SECTION */}
       <section className="py-24">
         <div className="max-w-6xl mx-auto px-6">
-          
-          {/* ✅ SMOOTH TAB SWITCH (LayoutId for 60fps Sliding Pill) */}
-          <div className="flex justify-center mb-16">
-            <div className="inline-flex bg-stone-200/50 p-1.5 rounded-full gap-1 relative">
-              {(["plants", "planters"] as Tab[]).map((tab) => (
-                <button
-                  key={tab}
-                  onClick={() => setActive(tab)}
-                  className={`relative px-6 py-3 min-h-[44px] rounded-full text-sm font-medium transition-colors z-10 ${
-                    active === tab
-                      ? "text-white"
-                      : "text-stone-600 hover:text-stone-900"
-                  }`}
-                >
-                  {/* Sliding Background Pill */}
-                  {active === tab && (
-                    <motion.div
-                      layoutId="active-tab-indicator"
-                      className="absolute inset-0 bg-stone-900 rounded-full -z-10"
-                      transition={{ type: "spring", bounce: 0.2, duration: 0.5 }}
-                    />
-                  )}
-                  <span className="capitalize relative z-20">{tab}</span>
-                </button>
-              ))}
-            </div>
-          </div>
+          {/* SHADCN TABS */}
+          <Tabs
+            value={active}
+            onValueChange={(value) => setActive(value as Tab)}
+            className="w-full"
+          >
+            <div className="flex justify-center mb-16">
+              {/* Added items-center and ensure h-auto overrides any default heights */}
+              <TabsList className="inline-flex items-center h-auto rounded-full bg-black p-1.5 gap-1">
+                {(["plants", "planters"] as Tab[]).map((tab) => (
+                  <TabsTrigger
+                    key={tab}
+                    value={tab}
+                    className={`
+    relative z-0 flex items-center justify-center
+    
+    h-auto min-h-0
+    px-6 py-2.5
+    
+    rounded-full text-sm font-medium cursor-pointer
+    transition-colors duration-300
+    
+    bg-transparent border-0 shadow-none
+    
+    focus-visible:ring-0
+    focus-visible:outline-none
+    
+    data-[state=active]:text-black
+    data-[state=inactive]:text-white/70
+    data-[state=inactive]:hover:text-white
+  `}
+                  >
+                    {/* Sliding Active Pill */}
+                    {active === tab && (
+                      <motion.div
+                        layoutId="active-tab-indicator"
+                        className="absolute inset-0 bg-white rounded-full -z-10"
+                        transition={{
+                          type: "spring",
+                          bounce: 0.2,
+                          duration: 0.5,
+                        }}
+                      />
+                    )}
 
+                    {/* Text Content */}
+                    <span className="capitalize relative z-10">{tab}</span>
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
+
+            <TabsContent value="plants" className="mt-0">
+              {/* Plants Grid */}
+            </TabsContent>
+
+            <TabsContent value="planters" className="mt-0">
+              {/* Planters Grid */}
+            </TabsContent>
+          </Tabs>
           {/* ✅ RESPONSIVE GRID (Animated Desktop, Instant Mobile) */}
           <motion.div layout className="min-h-[400px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
-                initial={isDesktop ? { opacity: 0, y: 15 } : { opacity: 1, y: 0 }}
+                initial={
+                  isDesktop ? { opacity: 0, y: 15 } : { opacity: 1, y: 0 }
+                }
                 animate={{ opacity: 1, y: 0 }}
-                exit={isDesktop ? { opacity: 0, y: -15 } : { opacity: 0, transition: { duration: 0 } }}
+                exit={
+                  isDesktop
+                    ? { opacity: 0, y: -15 }
+                    : { opacity: 0, transition: { duration: 0 } }
+                }
                 transition={{ duration: 0.3, ease: "easeOut" }}
                 className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
               >
@@ -109,9 +148,9 @@ export default function ProductsPage() {
 
           {/* EMPTY STATE */}
           {filteredProducts.length === 0 && (
-            <motion.div 
-              initial={{ opacity: 0 }} 
-              animate={{ opacity: 1 }} 
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               className="text-center py-20"
             >
               <Leaf className="mx-auto mb-4 text-gray-400" />
