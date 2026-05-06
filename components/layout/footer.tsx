@@ -1,19 +1,17 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { Phone, Mail, MapPin, ArrowUpRight } from 'lucide-react'
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
-  const year = new Date().getFullYear()
+  const year = new Date().getFullYear();
 
   return (
     <footer className="bg-stone-950 text-white pt-24 pb-8 border-t border-stone-900">
       <div className="max-w-6xl mx-auto px-6">
-
         {/* TOP SECTION: BRAND & GRID */}
         <div className="grid md:grid-cols-12 gap-16 lg:gap-24 mb-24">
-
           {/* Brand Presentation (Spans 5 columns) */}
           <div className="md:col-span-5">
             <motion.div
@@ -23,14 +21,19 @@ export default function Footer() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-4xl md:text-5xl font-light tracking-tight mb-2">
-                Shaheen <span className="font-serif italic text-stone-400">Flowers</span>
+                Shaheen{" "}
+                <span className="font-serif italic text-stone-400">
+                  Flowers
+                </span>
               </h2>
               <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-stone-600 mb-8">
                 & Ornamental Plants Trdg.
               </p>
 
               <p className="text-stone-400 font-light leading-relaxed max-w-sm">
-                Bespoke landscaping and botanical solutions across the UAE. We deliver uncompromising quality, sustainability, and architectural elegance.
+                Bespoke landscaping and botanical solutions across the UAE. We
+                deliver uncompromising quality, sustainability, and
+                architectural elegance.
               </p>
             </motion.div>
           </div>
@@ -48,10 +51,10 @@ export default function Footer() {
               </h4>
 
               <ul className="space-y-4 text-sm font-light text-stone-300">
-                {['Home', 'Services', 'Portfolio', 'Contact'].map((item) => (
+                {["Home", "Services", "Portfolio", "Contact"].map((item) => (
                   <li key={item}>
-                    <Link 
-                      href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                    <Link
+                      href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
                       className="group inline-flex items-center gap-2 hover:text-white transition-colors duration-300"
                     >
                       <span className="relative">
@@ -78,7 +81,6 @@ export default function Footer() {
               </h4>
 
               <div className="space-y-6 text-sm font-light text-stone-300">
-                
                 {/* Phone */}
                 <div className="flex items-start gap-4 group cursor-pointer">
                   <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-stone-500 group-hover:bg-white group-hover:text-stone-900 transition-all duration-500 shrink-0">
@@ -86,22 +88,25 @@ export default function Footer() {
                   </div>
                   <div className="space-y-1.5 pt-1 group-hover:text-white transition-colors duration-300">
                     <p className="flex justify-between w-full max-w-[200px]">
-                      <span className="text-stone-500">Mobile:</span> 
+                      <span className="text-stone-500">Mobile:</span>
                       <span>+971 50 7750967</span>
                     </p>
                     <p className="flex justify-between w-full max-w-[200px]">
-                      <span className="text-stone-500">Tel:</span> 
+                      <span className="text-stone-500">Tel:</span>
                       <span>+971 6 7415779</span>
                     </p>
                     <p className="flex justify-between w-full max-w-[200px]">
-                      <span className="text-stone-500">Fax:</span> 
+                      <span className="text-stone-500">Fax:</span>
                       <span>+971 6 7415790</span>
                     </p>
                   </div>
                 </div>
 
                 {/* Email */}
-                <a href="mailto:sales@shaheenflowers.com" className="flex items-center gap-4 group">
+                <a
+                  href="mailto:sales@shaheenflowers.com"
+                  className="flex items-center gap-4 group"
+                >
                   <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-stone-500 group-hover:bg-white group-hover:text-stone-900 transition-all duration-500 shrink-0">
                     <Mail size={14} />
                   </div>
@@ -119,37 +124,60 @@ export default function Footer() {
                     P.O. Box 13019, Ajman, UAE
                   </p>
                 </div>
-
               </div>
             </motion.div>
           </div>
-
         </div>
 
         {/* BOTTOM SECTION: COPYRIGHT & AGENCY CREDIT */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] uppercase tracking-widest text-stone-600 font-medium"
+          className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] uppercase tracking-widest text-stone-600 font-medium"
         >
-          <p>
-            © {year} Shaheen Flowers. All rights reserved.
-          </p>
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+            <p>© {year} Shaheen Flowers. All rights reserved.</p>
 
-          <a 
-            href="https://ownthesite-landing.vercel.app/" 
-            target="_blank" 
+            <div className="hidden md:block w-[1px] h-3 bg-white/10" />
+
+            <div className="flex items-center gap-4">
+              <Link
+                href="/privacy-policy"
+                className="hover:text-stone-300 transition-colors duration-300"
+              >
+                Privacy Policy
+              </Link>
+
+              <span className="text-stone-700">•</span>
+
+              <Link
+                href="/terms-and-conditions"
+                className="hover:text-stone-300 transition-colors duration-300"
+              >
+                Terms & Conditions
+              </Link>
+            </div>
+          </div>
+
+          <a
+            href="https://ownthesite-landing.vercel.app/"
+            target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-1 hover:text-stone-300 transition-colors duration-300"
           >
-            Digital Experience by <span className="text-stone-400 group-hover:text-white transition-colors duration-300">OwnTheSite</span>
-            <ArrowUpRight size={12} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+            Digital Experience by{" "}
+            <span className="text-stone-400 group-hover:text-white transition-colors duration-300">
+              OwnTheSite
+            </span>
+            <ArrowUpRight
+              size={12}
+              className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+            />
           </a>
         </motion.div>
-
       </div>
     </footer>
-  )
+  );
 }
