@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface SubMenuItem {
@@ -72,11 +72,11 @@ export default function Navbar() {
         transition={{ duration: 0.45 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled || isOpen
-            ? "bg-white/80 backdrop-blur-xl border-b border-stone-200/80 shadow-sm py-4"
-            : "bg-transparent py-5"
-        }`}
+            ? "bg-white/80 backdrop-blur-xl border border-stone-200/80 shadow-lg"
+            : "bg-white/10 backdrop-blur-md border border-white/10"
+        } h-20 flex items-center`}
       >
-        <div className="max-w-7xl mx-auto px-5 md:px-6 flex items-center justify-between">
+        <div className="w-full max-w-7xl mx-auto px-5 md:px-6 flex items-center justify-between">
           {/* LOGO */}
           <Link
             href="/"
@@ -250,7 +250,9 @@ export default function Navbar() {
                       >
                         <span>{link.label}</span>
 
-                        <span className="text-stone-400 text-sm">↗</span>
+                        <span>
+                          <ArrowUpRight size={16} className="text-stone-400" />
+                        </span>
                       </Link>
                     </motion.div>
                   ))}
