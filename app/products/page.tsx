@@ -67,46 +67,34 @@ export default function ProductsPage() {
             className="w-full"
           >
             <div className="flex justify-center mb-16">
-              {/* Added items-center and ensure h-auto overrides any default heights */}
               <TabsList className="inline-flex items-center h-auto rounded-full bg-black p-1.5 gap-1">
                 {(["plants", "planters"] as Tab[]).map((tab) => (
                   <TabsTrigger
                     key={tab}
                     value={tab}
-                    className={`
-    relative z-0 flex items-center justify-center
-    
-    h-auto min-h-0
-    px-6 py-2.5
-    
-    rounded-full text-sm font-medium cursor-pointer
-    transition-colors duration-300
-    
-    bg-transparent border-0 shadow-none
-    
-    focus-visible:ring-0
-    focus-visible:outline-none
-    
-    data-[state=active]:text-black
-    data-[state=inactive]:text-white/70
-    data-[state=inactive]:hover:text-white
-  `}
-                  >
-                    {/* Sliding Active Pill */}
-                    {active === tab && (
-                      <motion.div
-                        layoutId="active-tab-indicator"
-                        className="absolute inset-0 bg-white rounded-full -z-10"
-                        transition={{
-                          type: "spring",
-                          bounce: 0.2,
-                          duration: 0.5,
-                        }}
-                      />
-                    )}
+                    className="
+            h-auto min-h-0
+            rounded-full
+            px-6 py-2.5
 
-                    {/* Text Content */}
-                    <span className="capitalize relative z-10">{tab}</span>
+            text-sm font-medium capitalize
+            transition-all duration-200
+
+            text-white/70
+            bg-transparent
+            border-0 shadow-none
+
+            hover:text-white
+
+            data-[state=active]:bg-white
+            data-[state=active]:text-black
+            data-[state=active]:shadow-none
+
+            focus-visible:ring-0
+            focus-visible:outline-none
+          "
+                  >
+                    {tab}
                   </TabsTrigger>
                 ))}
               </TabsList>
