@@ -1,7 +1,9 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+
 import './globals.css'
+
 import Navbar from '@/components/layout/navbar'
 import Footer from '@/components/layout/footer'
 import WhatsAppButton from '@/components/layout/whatsapp-button'
@@ -42,45 +44,68 @@ export const metadata: Metadata = {
 
   icons: {
     icon: [
-      { url: '/favicon-16x16.webp', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon-32x32.webp', sizes: '32x32', type: 'image/png' },
-      { url: '/icon.svg', type: 'image/svg+xml' },
+      {
+        url: '/favicon-16x16.png',
+        sizes: '16x16',
+        type: 'image/png',
+      },
+      {
+        url: '/favicon-32x32.png',
+        sizes: '32x32',
+        type: 'image/png',
+      },
+      {
+        url: '/favicon.ico',
+      },
     ],
-    apple: [{ url: '/apple-touch-icon.webp', sizes: '180x180' }],
-    shortcut: '/favicon-32x32.webp',
-  },
 
-  manifest: '/site.webmanifest',
+    apple: [
+      {
+        url: '/apple-touch-icon.png',
+        sizes: '180x180',
+      },
+    ],
+
+    shortcut: '/favicon.ico',
+  },
 
   openGraph: {
     title: 'Shaheen Flowers LLC',
     description:
       'Premium landscaping & plant services in UAE. Indoor plants, outdoor plants, and maintenance services.',
+
     url: 'https://shaheenflowers.com',
-    siteName: 'Shaheen Flowers',
+
+    siteName: 'Shaheen Flowers LLC',
+
     images: [
       {
-        url: '/og-image.jpg', // make sure this exists
+        url: '/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Shaheen Flowers Landscaping Services',
       },
     ],
+
     locale: 'en_US',
     type: 'website',
   },
 
   twitter: {
     card: 'summary_large_image',
+
     title: 'Shaheen Flowers LLC',
+
     description:
       'Premium landscaping & plant services in UAE.',
+
     images: ['/og-image.jpg'],
   },
 
   robots: {
     index: true,
     follow: true,
+
     googleBot: {
       index: true,
       follow: true,
@@ -89,14 +114,12 @@ export const metadata: Metadata = {
     },
   },
 
- 
-
   category: 'business',
 }
 
- export const viewport = {
+export const viewport: Viewport = {
   themeColor: '#ffffff',
-  }
+}
 
 export default function RootLayout({
   children,
@@ -104,14 +127,22 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" className={`${geist.variable} ${geistMono.variable} scroll-smooth`} >
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className={`${geist.variable} ${geistMono.variable} scroll-smooth`}
+    >
       <body className="font-sans antialiased bg-white">
         <Navbar />
+
         <main className="pt-16">
           {children}
         </main>
+
         <Footer />
+
         <WhatsAppButton />
+
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
