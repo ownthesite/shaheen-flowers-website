@@ -1,105 +1,104 @@
-import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
+import type { Metadata, Viewport } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 
-import './globals.css'
+import "./globals.css";
 
-import Navbar from '@/components/layout/navbar'
-import Footer from '@/components/layout/footer'
-import WhatsAppButton from '@/components/layout/whatsapp-button'
+import Navbar from "@/components/layout/navbar";
+import Footer from "@/components/layout/footer";
+import WhatsAppButton from "@/components/layout/whatsapp-button";
 
 const geist = Geist({
-  subsets: ['latin'],
-  variable: '--font-sans',
-})
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
 
 const geistMono = Geist_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
-})
+  subsets: ["latin"],
+  variable: "--font-mono",
+});
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://shaheenflowers.com'),
+  metadataBase: new URL("https://shaheenflowers.com"),
 
   title: {
-    default: 'Shaheen Flowers LLC - Landscaping & Plant Services UAE',
-    template: '%s | Shaheen Flowers LLC',
+    default: "Shaheen Flowers LLC - Landscaping & Plant Services UAE",
+    template: "%s | Shaheen Flowers LLC",
   },
 
   description:
-    'Premium landscaping, indoor plants, outdoor plants, plant maintenance, and green wall services in UAE. 10+ years of experience serving 300+ clients.',
+    "Premium landscaping, indoor plants, outdoor plants, plant maintenance, and green wall services in UAE. 10+ years of experience serving 300+ clients.",
 
   keywords: [
-    'landscaping UAE',
-    'indoor plants UAE',
-    'outdoor plants UAE',
-    'plant maintenance UAE',
-    'green wall UAE',
-    'garden services UAE',
+    "landscaping UAE",
+    "indoor plants UAE",
+    "outdoor plants UAE",
+    "plant maintenance UAE",
+    "green wall UAE",
+    "garden services UAE",
   ],
 
-  authors: [{ name: 'Shaheen Flowers LLC' }],
-  creator: 'Shaheen Flowers LLC',
-  publisher: 'Shaheen Flowers LLC',
+  authors: [{ name: "Shaheen Flowers LLC" }],
+  creator: "Shaheen Flowers LLC",
+  publisher: "Shaheen Flowers LLC",
 
   icons: {
     icon: [
       {
-        url: '/favicon-16x16.png',
-        sizes: '16x16',
-        type: 'image/png',
+        url: "/favicon-16x16.png",
+        sizes: "16x16",
+        type: "image/png",
       },
       {
-        url: '/favicon-32x32.png',
-        sizes: '32x32',
-        type: 'image/png',
+        url: "/favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
       },
       {
-        url: '/favicon.ico',
+        url: "/favicon.ico",
       },
     ],
 
     apple: [
       {
-        url: '/apple-touch-icon.png',
-        sizes: '180x180',
+        url: "/apple-touch-icon.png",
+        sizes: "180x180",
       },
     ],
 
-    shortcut: '/favicon.ico',
+    shortcut: "/favicon.ico",
   },
 
   openGraph: {
-    title: 'Shaheen Flowers LLC',
+    title: "Shaheen Flowers LLC",
     description:
-      'Premium landscaping & plant services in UAE. Indoor plants, outdoor plants, and maintenance services.',
+      "Premium landscaping & plant services in UAE. Indoor plants, outdoor plants, and maintenance services.",
 
-    url: 'https://shaheenflowers.com',
+    url: "https://shaheenflowers.com",
 
-    siteName: 'Shaheen Flowers LLC',
+    siteName: "Shaheen Flowers LLC",
 
     images: [
       {
-        url: '/og-image.jpg',
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: 'Shaheen Flowers Landscaping Services',
+        alt: "Shaheen Flowers Landscaping Services",
       },
     ],
 
-    locale: 'en_US',
-    type: 'website',
+    locale: "en_US",
+    type: "website",
   },
 
   twitter: {
-    card: 'summary_large_image',
+    card: "summary_large_image",
 
-    title: 'Shaheen Flowers LLC',
+    title: "Shaheen Flowers LLC",
 
-    description:
-      'Premium landscaping & plant services in UAE.',
+    description: "Premium landscaping & plant services in UAE.",
 
-    images: ['/og-image.jpg'],
+    images: ["/og-image.jpg"],
   },
 
   robots: {
@@ -109,22 +108,22 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
 
-  category: 'business',
-}
+  category: "business",
+};
 
 export const viewport: Viewport = {
-  themeColor: '#ffffff',
-}
+  themeColor: "#ffffff",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html
@@ -135,16 +134,14 @@ export default function RootLayout({
       <body className="font-sans antialiased bg-white">
         <Navbar />
 
-        <main className="pt-16">
-          {children}
-        </main>
+        <main className="pt-24">{children}</main>
 
         <Footer />
 
         <WhatsAppButton />
 
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
     </html>
-  )
+  );
 }

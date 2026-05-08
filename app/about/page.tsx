@@ -1,24 +1,21 @@
-'use client'
+"use client";
 
-import Image from 'next/image'
-import CTASection from '@/components/sections/cta-section'
-import { motion } from 'framer-motion'
-import { fadeUp } from "@/lib/animations"
+import Image from "next/image";
+import CTASection from "@/components/sections/cta-section";
+import { motion } from "framer-motion";
+import { fadeUp } from "@/lib/animations";
 
 export default function About() {
-  
-
   const staggerContainer = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: { staggerChildren: 0.15 },
     },
-  }
+  };
 
   return (
     <div className="bg-[#FAFAFA]">
-
       {/* HERO */}
       <section className="relative py-32 md:py-44 bg-stone-950 text-white overflow-hidden">
         <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-stone-800/30 rounded-full blur-[120px] -translate-y-1/2 -translate-x-1/3 pointer-events-none" />
@@ -36,15 +33,26 @@ export default function About() {
               </span>
             </motion.div>
 
-            <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl font-light leading-[1.1] tracking-tight mb-8">
-              We Design.<br />
-              Create.<br />
-              <span className="font-serif italic text-white/90">Make It Real.</span>
+            <motion.h1
+              variants={fadeUp}
+              className="text-5xl md:text-7xl font-light leading-[1.1] tracking-tight mb-8"
+            >
+              We Design.
+              <br />
+              Create.
+              <br />
+              <span className="font-serif italic text-white/90">
+                Make It Real.
+              </span>
             </motion.h1>
 
-            <motion.p variants={fadeUp} className="text-lg md:text-xl text-stone-400 font-light leading-relaxed max-w-2xl">
+            <motion.p
+              variants={fadeUp}
+              className="text-lg md:text-xl text-stone-400 font-light leading-relaxed max-w-2xl"
+            >
               A UAE-based landscaping firm with over a decade of expertise,
-              creating natural environments for homes, offices, and commercial spaces.
+              creating natural environments for homes, offices, and commercial
+              spaces.
             </motion.p>
           </motion.div>
         </div>
@@ -56,7 +64,7 @@ export default function About() {
           initial={{ scale: 1.05 }}
           whileInView={{ scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 2, ease: 'easeOut' }}
+          transition={{ duration: 2, ease: "easeOut" }}
           className="absolute inset-0"
         >
           <Image
@@ -80,10 +88,10 @@ export default function About() {
           className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-y-16 text-center"
         >
           {[
-            { value: '10+', label: 'Years Experience' },
-            { value: '300+', label: 'Clients' },
-            { value: '1K+', label: 'Plants Installed' },
-            { value: 'UAE', label: 'Coverage' },
+            { value: "10+", label: "Years Experience" },
+            { value: "300+", label: "Clients" },
+            { value: "1K+", label: "Plants Installed" },
+            { value: "UAE", label: "Coverage" },
           ].map((item, i) => (
             <motion.div key={i} variants={fadeUp}>
               <div className="text-5xl md:text-6xl font-light text-stone-900 mb-3">
@@ -100,7 +108,6 @@ export default function About() {
       {/* STORY */}
       <section className="py-32 bg-[#FAFAFA]">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-
           {/* TEXT */}
           <motion.div
             initial="hidden"
@@ -108,16 +115,29 @@ export default function About() {
             viewport={{ once: true }}
             variants={staggerContainer}
           >
-            <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-light text-stone-900 mb-6">
-              Built on <span className="font-serif italic text-stone-500">Experience</span>
+            <motion.h2
+              variants={fadeUp}
+              className="text-3xl md:text-4xl font-light text-stone-900 mb-6"
+            >
+              Built on{" "}
+              <span className="font-serif italic text-stone-500">
+                Experience
+              </span>
             </motion.h2>
 
-            <motion.p variants={fadeUp} className="text-stone-500 text-lg leading-relaxed mb-6">
+            <motion.p
+              variants={fadeUp}
+              className="text-stone-500 text-lg leading-relaxed mb-6"
+            >
               Shaheen Flowers LLC has built a strong reputation across the UAE
-              by delivering reliable landscaping and plant solutions tailored to each space.
+              by delivering reliable landscaping and plant solutions tailored to
+              each space.
             </motion.p>
 
-            <motion.p variants={fadeUp} className="text-stone-500 text-lg leading-relaxed">
+            <motion.p
+              variants={fadeUp}
+              className="text-stone-500 text-lg leading-relaxed"
+            >
               With hundreds of completed projects, we focus on quality,
               consistency, and long-term plant health.
             </motion.p>
@@ -133,12 +153,12 @@ export default function About() {
           >
             <Image
               src="/images/about/story.jpg"
-              alt="Indoor Plant Design"
+              alt="Story"
               fill
-              className="object-cover transition duration-[1.6s] hover:scale-105"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
             />
           </motion.div>
-
         </div>
       </section>
 
@@ -151,8 +171,15 @@ export default function About() {
           variants={staggerContainer}
           className="max-w-4xl mx-auto"
         >
-          <motion.h2 variants={fadeUp} className="text-2xl md:text-4xl font-light leading-relaxed text-stone-300">
-            "We transform spaces into <span className="font-serif italic text-white">living environments</span> that improve well-being and elevate everyday life."
+          <motion.h2
+            variants={fadeUp}
+            className="text-2xl md:text-4xl font-light leading-relaxed text-stone-300"
+          >
+            "We transform spaces into{" "}
+            <span className="font-serif italic text-white">
+              living environments
+            </span>{" "}
+            that improve well-being and elevate everyday life."
           </motion.h2>
         </motion.div>
       </section>
@@ -160,17 +187,17 @@ export default function About() {
       {/* EXPERTISE */}
       <section className="py-28 bg-white">
         <div className="max-w-5xl mx-auto px-6">
-
           <h2 className="text-3xl font-light text-stone-900 mb-12">
-            Our <span className="font-serif italic text-stone-500">Expertise</span>
+            Our{" "}
+            <span className="font-serif italic text-stone-500">Expertise</span>
           </h2>
 
           <div className="border-t border-stone-200">
             {[
-              'Indoor plants & installations',
-              'Commercial landscaping',
-              'Villa garden design',
-              'Plant maintenance services',
+              "Indoor plants & installations",
+              "Commercial landscaping",
+              "Villa garden design",
+              "Plant maintenance services",
             ].map((item, i) => (
               <div
                 key={i}
@@ -180,7 +207,6 @@ export default function About() {
               </div>
             ))}
           </div>
-
         </div>
       </section>
 
@@ -190,5 +216,5 @@ export default function About() {
         description="Talk to our team and start your project today."
       />
     </div>
-  )
+  );
 }
