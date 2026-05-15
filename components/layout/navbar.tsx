@@ -104,7 +104,7 @@ export default function Navbar() {
                 transition-[height] duration-300
                 ${isScrolled ? "h-10" : "h-12"}
               `}
-            />
+            />    
 
             <div
               className={`
