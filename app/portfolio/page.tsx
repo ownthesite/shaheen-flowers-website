@@ -41,12 +41,29 @@ export default function Portfolio() {
     "12.webp",
   ];
 
-  // 🔥 Convert to projects with a bit more editorial dummy data
+  const categoryLabels = [
+    "Villa Garden",
+    "Commercial Landscaping",
+    "Indoor Greenery",
+    "Garden Installation",
+    "AMC Maintenance",
+    "Landscape Design",
+  ];
+
+  const descriptionLabels = [
+    "A completed villa garden with planting, irrigation, and seasonal care under an AMC contract.",
+    "Commercial landscaping for a hotel or office — designed, installed, and maintained on schedule.",
+    "Indoor plant installation for offices and lobbies, with ongoing maintenance visits.",
+    "Full garden installation including ornamental plants, beds, and irrigation setup.",
+    "Ongoing landscape maintenance keeping outdoor plants healthy through regular AMC visits.",
+    "Landscape design and execution tailored to UAE climate and the client's outdoor space.",
+  ];
+
+  // Convert to projects with editorial data
   const projects: Project[] = images.map((img, i) => ({
-    title: `Project ${String(i + 1).padStart(2, "0")}`, // e.g., Project 01
-    category: i % 2 === 0 ? "Indoor Botanical" : "Exterior Landscape",
-    description:
-      "A bespoke botanical integration designed to elevate the surrounding architectural space.",
+    title: `Project ${String(i + 1).padStart(2, "0")}`,
+    category: categoryLabels[i % categoryLabels.length],
+    description: descriptionLabels[i % descriptionLabels.length],
     image: `/images/new/${img}`,
     year: `${2022 + (i % 3)}`,
   }));
@@ -86,14 +103,15 @@ export default function Portfolio() {
 
             {/* Title (fixed scale + structure) */}
             <h1 className="text-5xl md:text-7xl font-light tracking-tight leading-tight mb-6">
-              Our <br className="hidden md:block" />
+              Our Landscaping <br className="hidden md:block" />
               <span className="font-serif italic text-white/90">Portfolio</span>
             </h1>
 
             {/* Description */}
             <p className="text-lg md:text-xl text-stone-400 font-light max-w-2xl mx-auto leading-relaxed">
-              An exclusive curation of our most defining landscaping and
-              botanical architecture projects.
+              Completed landscaping projects, garden installations, commercial
+              landscaping, indoor greenery work, and maintenance contracts from
+              across the UAE.
             </p>
           </motion.div>
 
@@ -105,9 +123,9 @@ export default function Portfolio() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mt-12 flex flex-wrap justify-center gap-6 text-xs uppercase tracking-widest text-stone-500"
           >
-            <span>Landscape Design</span>
-            <span>Outdoor Living</span>
-            <span>Botanical Installations</span>
+            <span>Completed Projects</span>
+            <span>Garden Installations</span>
+            <span>Maintenance Contracts</span>
           </motion.div>
         </div>
       </section>
@@ -173,8 +191,8 @@ export default function Portfolio() {
 
       {/* CTA SECTION */}
       <CTASection
-        title="Start Your Project"
-        description="Let’s design and build your living architecture together."
+        title="Want Results Like These?"
+        description="Share your project details and we will outline a landscaping or AMC maintenance plan for your property."
       />
     </div>
   );

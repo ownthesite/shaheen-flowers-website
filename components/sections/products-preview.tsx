@@ -12,21 +12,21 @@ export default function ProductsPreview() {
 
   const items = [
     {
-      title: 'Botanical Plants',
-      subtitle: 'Living architecture for your space',
+      title: 'Indoor Plants',
+      subtitle: 'Healthy plants for homes and offices',
       image: plants[0]?.image,
       href: '/products?category=plants',
     },
     {
-      title: 'Modern Planters',
-      subtitle: 'Minimalist vessels and pots',
+      title: 'Decorative Planters',
+      subtitle: 'Pots and vessels for every setting',
       image: planters[3]?.image,
       href: '/products?category=planters',
     },
     {
-      title: 'Curated Sets',
-      subtitle: 'Perfectly paired combinations',
-      image: plants[23]?.image, // Using the second plant as a fallback for "Featured/Sets"
+      title: 'Ornamental Plants',
+      subtitle: 'Outdoor and landscape-ready varieties',
+      image: plants[23]?.image,
       href: '/products',
     },
   ]

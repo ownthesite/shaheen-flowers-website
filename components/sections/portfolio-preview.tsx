@@ -52,7 +52,8 @@ export default function PortfolioPreview() {
           </h2>
 
           <p className="mt-6 text-lg text-stone-500 max-w-xl mx-auto font-light leading-relaxed">
-            A curated selection of our landscaping and plant installations.
+            Completed landscaping projects, garden installations, and indoor
+            greenery work from across the UAE.
           </p>
         </motion.div>
 

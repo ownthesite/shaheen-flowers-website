@@ -14,27 +14,27 @@ export default function ServicesOverview() {
   const services: Service[] = [
     {
       icon: <Leaf className="w-5 h-5" />,
-      title: 'Indoor Plants',
+      title: 'Indoor Plants & Pots Supply',
       description:
-        'Premium indoor botanicals curated for air purification and modern interiors.',
-    },
-    {
-      icon: <Sprout className="w-5 h-5" />,
-      title: 'Outdoor Landscaping',
-      description:
-        'Transform outdoor environments with structured, aesthetic architectural landscaping.',
+        'Supply of premium indoor plants and decorative pots for homes, offices, and commercial spaces.',
     },
     {
       icon: <Droplets className="w-5 h-5" />,
-      title: 'Plant Maintenance',
+      title: 'Indoor Plants Maintenance with AMC',
       description:
-        'Consistent, dedicated care programs to keep your greenery vibrant year-round.',
+        'Comprehensive annual maintenance contracts to ensure healthy, thriving indoor plants year-round.',
+    },
+    {
+      icon: <Sprout className="w-5 h-5" />,
+      title: 'Outdoor Landscaping with AMC',
+      description:
+        'Professional landscape design, installation, and ongoing maintenance through annual service contracts.',
     },
     {
       icon: <Wind className="w-5 h-5" />,
-      title: 'Green Walls',
+      title: 'Artificial Plants & Green Walls',
       description:
-        'Living vertical gardens designed for high-impact modern architectural spaces.',
+        'High-quality artificial plants and decorative green wall solutions for elegant, maintenance-free greenery.',
     },
   ]
 
@@ -49,17 +49,17 @@ export default function ServicesOverview() {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const } 
+      transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }
     },
   }
 
   return (
     <section className="py-32 bg-[#FAFAFA] border-t border-stone-200 overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
-        
+
         {/* PREMIUM HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -79,12 +79,13 @@ export default function ServicesOverview() {
           </h2>
 
           <p className="text-lg text-stone-500 font-light max-w-xl mx-auto leading-relaxed">
-            Bespoke landscaping and botanical solutions designed to elevate both residential and commercial environments.
+            From outdoor landscaping with AMC to indoor plant maintenance, we
+            handle supply, installation, and ongoing care across the UAE.
           </p>
         </motion.div>
 
         {/* EDITORIAL GRID */}
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

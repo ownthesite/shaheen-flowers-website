@@ -3,6 +3,12 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import {
+  FaInstagram,
+  FaFacebookF,
+  FaPinterestP,
+  FaXTwitter,
+} from "react-icons/fa6";
 import { fadeUp } from "@/lib/animations"
 
 export default function Contact() {
@@ -77,7 +83,7 @@ export default function Contact() {
       });
 
       // ✅ WhatsApp trigger
-      const whatsappNumber = "971507750967"; // replace with your number
+      const whatsappNumber = "918547416951";
 
       const message = `📩 New Enquiry
 
@@ -140,15 +146,17 @@ ${form.message}`;
 
       {/* Title (same typography system) */}
       <h1 className="text-5xl md:text-7xl font-light tracking-tight leading-tight mb-6">
-        Let’s Discuss <br className="hidden md:block" />
+        Contact <br className="hidden md:block" />
         <span className="font-serif italic text-white/90">
-          Your Project
+          Shaheen Flowers
         </span>
       </h1>
 
       {/* Description */}
       <p className="text-lg md:text-xl text-stone-400 font-light max-w-2xl mx-auto leading-relaxed">
-        Reach out to us to design and build your bespoke living architecture together.
+        Questions about landscaping with AMC, indoor plants, or garden
+        maintenance? Call us, send a WhatsApp message, or fill in the form
+        below — we will get back to you promptly.
       </p>
     </motion.div>
 
@@ -161,7 +169,7 @@ ${form.message}`;
       className="mt-12 flex flex-col items-center gap-8"
     >
       <a
-        href="https://wa.me/971507750967?text=Hi%20Shaheen%20Flowers%2C%20I%27m%20interested%20in%20your%20services.%20Here%20are%20my%20details%3A%0A%0AName%3A%20%0APhone%3A%20%0ALocation%3A%20%0AService%20Needed%3A%20%0A%0APlease%20get%20back%20to%20me."
+        href="https://wa.me/918547416951?text=Hi%20Shaheen%20Flowers%2C%20I%27m%20interested%20in%20your%20services.%20Here%20are%20my%20details%3A%0A%0AName%3A%20%0APhone%3A%20%0ALocation%3A%20%0AService%20Needed%3A%20%0A%0APlease%20get%20back%20to%20me."
         target="_blank"
         rel="noopener noreferrer"
         className="inline-block w-full sm:w-auto"
@@ -215,7 +223,12 @@ ${form.message}`;
                   </div>
                   <div className="flex items-center gap-4 text-stone-900 font-light text-lg">
                     <Phone className="text-stone-400" size={20} />
-                    <span className="tracking-wide">+971 55 2039009</span>
+                    <a
+                      href="tel:+918547416951"
+                      className="tracking-wide hover:text-stone-600 transition-colors"
+                    >
+                      +91 85474 16951
+                    </a>
                   </div>
                 </motion.div>
 
@@ -237,7 +250,53 @@ ${form.message}`;
                   </div>
                   <div className="flex items-center gap-4 text-stone-900 font-light text-lg">
                     <MapPin className="text-stone-400" size={20} />
-                    <span className="tracking-wide">Ajman, UAE</span>
+                    <span className="tracking-wide">
+                      P.O. Box 13019, Ajman, UAE
+                    </span>
+                  </div>
+                </motion.div>
+
+                <motion.div variants={fadeUp} className="group">
+                  <div className="text-xs text-stone-400 tracking-[0.15em] uppercase mb-3">
+                    Follow Us
+                  </div>
+                  <div className="flex items-center gap-5 text-stone-600">
+                    <a
+                      href="https://www.instagram.com/shaheenflowers/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-stone-900 transition-colors"
+                      aria-label="Instagram"
+                    >
+                      <FaInstagram size={18} />
+                    </a>
+                    <a
+                      href="https://www.facebook.com/Shaheenflowers.uae"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-stone-900 transition-colors"
+                      aria-label="Facebook"
+                    >
+                      <FaFacebookF size={18} />
+                    </a>
+                    <a
+                      href="https://www.pinterest.com/shaheenflowersllc/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-stone-900 transition-colors"
+                      aria-label="Pinterest"
+                    >
+                      <FaPinterestP size={18} />
+                    </a>
+                    <a
+                      href="https://x.com/shaheenflowersl"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-stone-900 transition-colors"
+                      aria-label="X"
+                    >
+                      <FaXTwitter size={18} />
+                    </a>
                   </div>
                 </motion.div>
               </div>
@@ -258,6 +317,10 @@ ${form.message}`;
                   Inquiry
                 </span>
               </h3>
+              <p className="text-stone-500 font-light mb-10 leading-relaxed">
+                Share your property details, the service you need, and your
+                preferred contact time. We typically respond within a few hours.
+              </p>
 
               <form onSubmit={handleSubmit} className="space-y-8">
                 {/* Minimalist Input Fields */}

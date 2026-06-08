@@ -1,55 +1,74 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import CTASection from '@/components/sections/cta-section'
 import { motion } from 'framer-motion'
-import { Leaf, RefreshCcw, ShieldCheck, Sparkles } from 'lucide-react'
 import { fadeUp } from "@/lib/animations"
 
 type Service = {
   title: string
   description: string
+  benefits: string[]
   image: string
+  cta: string
 }
 
 export default function Services() {
   const services: Service[] = [
     {
-      title: 'Indoor Plants & Installations',
+      title: 'Indoor Plants and Pots Supply',
       description:
-        'Premium indoor plant solutions for offices, hotels, and residences. We design, supply, and install plants that enhance air quality and elevate interior spaces.',
+        'We supply healthy indoor plants and decorative pots for homes, offices, hotels, and retail spaces across the UAE. As an indoor plant supplier, we help you choose the right species and planters for light conditions, layout, and maintenance needs.',
+      benefits: [
+        'Wide selection of indoor and ornamental plants',
+        'Decorative pots and planters to match your interior',
+        'Delivery and placement for offices and commercial sites',
+        'Advice on plant care and suitable varieties for UAE conditions',
+      ],
       image: '/images/services/indoor.jpg',
+      cta: 'Request a plant supply quote',
     },
     {
-      title: 'Outdoor Landscaping',
+      title: 'Indoor Plants Maintenance with AMC',
       description:
-        'Complete outdoor landscaping including design, execution, and transformation of villas, rooftops, and commercial environments.',
-      image: '/images/services/outdoor.jpg',
-    },
-    {
-      title: 'Plant Maintenance',
-      description:
-        'Scheduled maintenance services including watering, pruning, fertilization, and health monitoring to ensure long-term plant vitality.',
+        'Keep your indoor greenery healthy year-round with our annual maintenance contracts. Our team handles watering, pruning, cleaning, fertilising, and plant replacement so your space always looks its best.',
+      benefits: [
+        'Scheduled visits based on your contract plan',
+        'Free replacement of unhealthy plants under AMC',
+        'Suitable for offices, hotels, and residential properties',
+        'One team for supply, installation, and ongoing care',
+      ],
       image: '/images/services/maintenance.jpg',
+      cta: 'Ask about indoor AMC plans',
     },
     {
-      title: 'Green Walls & Features',
+      title: 'Outdoor Landscaping with AMC',
       description:
-        'Modern vertical gardens and preserved green walls designed to create stunning visual impact in interiors and commercial spaces.',
+        'From garden design and installation to long-term landscape maintenance, we offer outdoor landscaping with AMC in UAE for villas, compounds, hotels, and commercial properties. Your garden stays healthy without you managing the details.',
+      benefits: [
+        'Landscape design, planting, and hardscape coordination',
+        'Regular garden maintenance under annual contracts',
+        'Irrigation checks and seasonal plant care',
+        'Experience with UAE climate and soil conditions',
+      ],
+      image: '/images/services/outdoor.jpg',
+      cta: 'Discuss outdoor landscaping AMC',
+    },
+    {
+      title: 'Artificial Plants and Green Wall Solutions',
+      description:
+        'When natural planting is not practical, our artificial plants and green wall solutions add greenery without daily upkeep. Ideal for interiors, feature walls, and areas with limited light or access.',
+      benefits: [
+        'Realistic artificial plants for indoor and outdoor use',
+        'Green wall design and installation',
+        'Low maintenance — no watering or pruning required',
+        'Custom layouts for offices, lobbies, and retail spaces',
+      ],
       image: '/images/services/greenwall.jpg',
-    },
-    {
-      title: 'Artificial Plants Solutions',
-      description:
-        'High-quality artificial plants for spaces where natural greenery is not practical, without compromising aesthetics.',
-      image: '/images/services/artificial.jpg',
+      cta: 'Explore green wall options',
     },
   ]
-
-    
-
-  // Animation variants
- 
 
   return (
     <div className="bg-[#FAFAFA]">
@@ -68,17 +87,19 @@ export default function Services() {
           >
             <div className="inline-block px-4 py-1.5 mb-8 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm">
               <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-stone-300">
-                Our Expertise
+                Our Services
               </p>
             </div>
 
             <h1 className="text-5xl md:text-7xl font-light tracking-tight leading-tight mb-8">
               Landscaping & <br className="hidden md:block" />
-              <span className="font-serif italic text-white/90">Plant Solutions</span>
+              <span className="font-serif italic text-white/90">Plant Care</span>
             </h1>
 
             <p className="text-stone-400 text-lg md:text-xl max-w-2xl font-light leading-relaxed">
-              Complete indoor and outdoor botanical curation — from visionary design and installation to meticulous long-term maintenance.
+              Indoor plants, outdoor landscaping with AMC, and artificial green
+              wall solutions — supply, installation, and maintenance from one
+              team across the UAE.
             </p>
           </motion.div>
         </div>
@@ -123,16 +144,31 @@ export default function Services() {
                   {service.title}
                 </h2>
 
-                <p className="text-stone-500 leading-relaxed text-lg font-light">
+                <p className="text-stone-500 leading-relaxed text-lg font-light mb-8">
                   {service.description}
                 </p>
+
+                <ul className="space-y-3 mb-10">
+                  {service.benefits.map((benefit, i) => (
+                    <li
+                      key={i}
+                      className="text-stone-600 text-sm font-light leading-relaxed flex gap-3"
+                    >
+                      <span className="text-stone-400 shrink-0">—</span>
+                      {benefit}
+                    </li>
+                  ))}
+                </ul>
                 
-                <div className="mt-10">
-                  <span className="inline-flex items-center gap-2 text-sm font-medium text-stone-900 uppercase tracking-widest cursor-pointer group">
+                <div className="mt-2">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-stone-900 uppercase tracking-widest group"
+                  >
                     <span className="underline underline-offset-4 decoration-stone-300 group-hover:decoration-stone-900 transition-colors">
-                      Learn More
+                      {service.cta}
                     </span>
-                  </span>
+                  </Link>
                 </div>
               </div>
             </motion.div>
@@ -140,14 +176,11 @@ export default function Services() {
         </div>
       </section>
 
-      
-      
-
       {/* CTA */}
       <div className="bg-[#FAFAFA]">
         <CTASection
-          title="Start Your Project"
-          description="Talk to our team to design your indoor or outdoor plant solution."
+          title="Not Sure Which Service You Need?"
+          description="Tell us about your space and we will recommend the right plants, landscaping plan, or AMC contract for you."
         />
       </div>
     </div>

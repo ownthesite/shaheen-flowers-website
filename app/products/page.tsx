@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Leaf } from "lucide-react";
 import ProductCard from "@/components/cards/product-card";
@@ -43,15 +44,16 @@ export default function ProductsPage() {
             </div>
 
             <h1 className="text-5xl md:text-7xl font-light tracking-tight mb-6">
-              Curated For <br className="hidden md:block" />
+              Plants & <br className="hidden md:block" />
               <span className="font-serif italic text-white/90">
-                Your Space
+                Planters
               </span>
             </h1>
 
             <p className="text-lg md:text-xl text-stone-400 max-w-2xl">
-              Discover a refined selection of plants and premium planters
-              designed to elevate your environment.
+              Indoor plants, ornamental varieties, decorative planters, and
+              commercial greenery solutions — curated for homes, offices, and
+              landscape projects across the UAE.
             </p>
           </div>
         </div>
@@ -60,6 +62,32 @@ export default function ProductsPage() {
       {/* GRID SECTION */}
       <section className="py-24">
         <div className="max-w-6xl mx-auto px-6">
+          {/* Category descriptions */}
+          <div className="grid md:grid-cols-2 gap-12 mb-20 pb-16 border-b border-stone-200">
+            <div>
+              <h2 className="text-2xl font-light text-stone-900 mb-4">
+                Indoor & Ornamental Plants
+              </h2>
+              <p className="text-stone-500 font-light leading-relaxed">
+                Our indoor plants and ornamental varieties are selected for
+                UAE conditions — suitable for offices, lobbies, villas, and
+                commercial spaces. We supply and advise on placement, potting,
+                and care.
+              </p>
+            </div>
+            <div>
+              <h2 className="text-2xl font-light text-stone-900 mb-4">
+                Planters & Commercial Greenery
+              </h2>
+              <p className="text-stone-500 font-light leading-relaxed">
+                Decorative planters in a range of sizes and finishes, plus
+                commercial greenery solutions for hotels, retail, and corporate
+                environments. Pair plants with the right vessels for a finished
+                look.
+              </p>
+            </div>
+          </div>
+
           {/* SHADCN TABS */}
           <Tabs
             value={active}
@@ -145,6 +173,21 @@ export default function ProductsPage() {
               <p>No products found</p>
             </motion.div>
           )}
+
+          {/* CTA */}
+          <div className="mt-24 text-center pt-16 border-t border-stone-200">
+            <p className="text-stone-500 font-light max-w-xl mx-auto mb-8 leading-relaxed">
+              Need help choosing plants or planters for your project? Our team
+              can recommend the right varieties and supply options for your
+              space.
+            </p>
+            <Link
+              href="/contact"
+              className="inline-block text-sm uppercase tracking-[0.2em] text-stone-900 hover:text-stone-500 transition"
+            >
+              Request a Product Quote →
+            </Link>
+          </div>
         </div>
       </section>
     </div>

@@ -20,11 +20,12 @@ interface NavItem {
 
 const NAV_LINKS: NavItem[] = [
   { href: "/", label: "Home" },
+  { href: "/landscaping-with-amc-uae", label: "Landscaping with AMC UAE" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/products", label: "Products" },
   { href: "/portfolio", label: "Portfolio" },
-  { href: "/contact", label: "Contact" },
+  { href: "/contact", label: "Contact" }, 
 ];
 
 export default function Navbar() {

@@ -10,10 +10,10 @@ type CTASectionProps = {
 }
 
 export default function CTASection({
-  title = 'Start Your Landscaping Project',
-  description = 'Get a quick quote and expert guidance for your space.',
+  title = 'Ready to Start Your Project?',
+  description = 'Call us or send a message — we will help you plan landscaping, indoor plants, or an AMC maintenance contract for your space.',
 }: CTASectionProps) {
-  const phoneNumber = '971552039009'
+  const phoneNumber = '918547416951'
   // Updated message to be universally applicable
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20services.`
 

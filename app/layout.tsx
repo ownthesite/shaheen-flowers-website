@@ -8,6 +8,8 @@ import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import WhatsAppButton from "@/components/layout/whatsapp-button";
 
+import { defaultKeywords } from "@/lib/seo";
+
 const geist = Geist({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -22,25 +24,19 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://shaheenflowers.com"),
 
   title: {
-    default: "Shaheen Flowers LLC - Landscaping & Plant Services UAE",
-    template: "%s | Shaheen Flowers LLC",
+    default:
+      "Landscaping with AMC in UAE | Shaheen Flowers – Plants & Garden Services",
+    template: "%s | Shaheen Flowers",
   },
 
   description:
-    "Premium landscaping, indoor plants, outdoor plants, plant maintenance, and green wall services in UAE. 10+ years of experience serving 300+ clients.",
+    "Shaheen Flowers offers landscaping with AMC in UAE, outdoor garden maintenance, indoor plants supply, and green wall solutions. Call +91 85474 16951 for a quote.",
 
-  keywords: [
-    "landscaping UAE",
-    "indoor plants UAE",
-    "outdoor plants UAE",
-    "plant maintenance UAE",
-    "green wall UAE",
-    "garden services UAE",
-  ],
+  keywords: defaultKeywords,
 
-  authors: [{ name: "Shaheen Flowers LLC" }],
-  creator: "Shaheen Flowers LLC",
-  publisher: "Shaheen Flowers LLC",
+  authors: [{ name: "Shaheen Flowers and Ornamental Plants Trading LLC" }],
+  creator: "Shaheen Flowers and Ornamental Plants Trading LLC",
+  publisher: "Shaheen Flowers and Ornamental Plants Trading LLC",
 
   icons: {
     icon: [
@@ -70,13 +66,14 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Shaheen Flowers LLC",
+    title:
+      "Landscaping with AMC in UAE | Shaheen Flowers – Plants & Garden Services",
     description:
-      "Premium landscaping & plant services in UAE. Indoor plants, outdoor plants, and maintenance services.",
+      "Shaheen Flowers offers landscaping with AMC in UAE, outdoor garden maintenance, indoor plants supply, and green wall solutions.",
 
     url: "https://shaheenflowers.com",
 
-    siteName: "Shaheen Flowers LLC",
+    siteName: "Shaheen Flowers and Ornamental Plants Trading LLC",
 
     images: [
       {
@@ -94,9 +91,11 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
 
-    title: "Shaheen Flowers LLC",
+    title:
+      "Landscaping with AMC in UAE | Shaheen Flowers – Plants & Garden Services",
 
-    description: "Premium landscaping & plant services in UAE.",
+    description:
+      "Outdoor landscaping with AMC, indoor plants maintenance, and green wall solutions across the UAE.",
 
     images: ["/og-image.jpg"],
   },

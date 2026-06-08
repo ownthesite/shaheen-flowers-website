@@ -37,22 +37,20 @@ export default function About() {
               variants={fadeUp}
               className="text-5xl md:text-7xl font-light leading-[1.1] tracking-tight mb-8"
             >
-              We Design.
+              Creating Green Spaces
               <br />
-              Create.
-              <br />
-              <span className="font-serif italic text-white/90">
-                Make It Real.
-              </span>
+              Across the{" "}
+              <span className="font-serif italic text-white/90">UAE</span>
             </motion.h1>
 
             <motion.p
               variants={fadeUp}
               className="text-lg md:text-xl text-stone-400 font-light leading-relaxed max-w-2xl"
             >
-              A UAE-based landscaping firm with over a decade of expertise,
-              creating natural environments for homes, offices, and commercial
-              spaces.
+              At Shaheen Flowers and Ornamental Plants Trading LLC, we believe
+              every outdoor space has the potential to become something special.
+              We create beautiful environments that bring comfort, value, and
+              lasting impressions.
             </motion.p>
           </motion.div>
         </div>
@@ -119,27 +117,29 @@ export default function About() {
               variants={fadeUp}
               className="text-3xl md:text-4xl font-light text-stone-900 mb-6"
             >
-              Built on{" "}
-              <span className="font-serif italic text-stone-500">
-                Experience
-              </span>
+              Our{" "}
+              <span className="font-serif italic text-stone-500">Story</span>
             </motion.h2>
 
             <motion.p
               variants={fadeUp}
               className="text-stone-500 text-lg leading-relaxed mb-6"
             >
-              Shaheen Flowers LLC has built a strong reputation across the UAE
-              by delivering reliable landscaping and plant solutions tailored to
-              each space.
+              Serving clients across the UAE, we provide professional
+              landscaping with AMC designed to turn ordinary spaces into
+              attractive, functional green areas. Our work covers landscape
+              design, garden development, ornamental plant supply, irrigation
+              installation, and ongoing landscape maintenance.
             </motion.p>
 
             <motion.p
               variants={fadeUp}
               className="text-stone-500 text-lg leading-relaxed"
             >
-              With hundreds of completed projects, we focus on quality,
-              consistency, and long-term plant health.
+              Whether it is a private villa, commercial property, hotel, park,
+              or corporate facility, we approach every project with the same
+              dedication and attention to detail. We understand the UAE climate
+              and select plants, materials, and techniques that thrive here.
             </motion.p>
           </motion.div>
 
@@ -175,11 +175,12 @@ export default function About() {
             variants={fadeUp}
             className="text-2xl md:text-4xl font-light leading-relaxed text-stone-300"
           >
-            "We transform spaces into{" "}
+            Our mission is to create beautiful landscapes that leave a{" "}
             <span className="font-serif italic text-white">
-              living environments
+              lasting impression
             </span>{" "}
-            that improve well-being and elevate everyday life."
+            — spaces that are visually appealing, practical, and easy to
+            maintain.
           </motion.h2>
         </motion.div>
       </section>
@@ -194,10 +195,10 @@ export default function About() {
 
           <div className="border-t border-stone-200">
             {[
-              "Indoor plants & installations",
-              "Commercial landscaping",
-              "Villa garden design",
-              "Plant maintenance services",
+              "Indoor plants and pots supply",
+              "Indoor plants maintenance with AMC",
+              "Outdoor landscaping with AMC",
+              "Artificial plants and green wall solutions",
             ].map((item, i) => (
               <div
                 key={i}
@@ -212,8 +213,8 @@ export default function About() {
 
       {/* CTA */}
       <CTASection
-        title="Let’s Create a Greener Space"
-        description="Talk to our team and start your project today."
+        title="Let Us Work on Your Space"
+        description="Tell us about your villa, office, or commercial property — we will recommend the right plants and maintenance plan for you."
       />
     </div>
   );

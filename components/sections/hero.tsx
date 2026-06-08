@@ -8,28 +8,28 @@ import { ArrowRight } from 'lucide-react'
 
 const slides = [
   {
-    title: 'Indoor Plants',
-    subtitle: 'Bring nature inside your space',
+    title: 'Landscaping with AMC',
+    subtitle: 'Outdoor landscaping with AMC in UAE',
     description:
-      'Elegant indoor plants designed for offices, homes, and luxury interiors.',
+      'From villa gardens to commercial sites, we design, install, and maintain outdoor landscapes through annual maintenance contracts you can rely on.',
+    image: '/images/hero/outdoor.jpg',
+    cta: '/landscaping-with-amc-uae',
+  },
+  {
+    title: 'Indoor Plants',
+    subtitle: 'Indoor plants and pots supply in UAE',
+    description:
+      'Healthy indoor plants and decorative pots for offices, hotels, and homes — supplied and styled to suit your space.',
     image: '/images/hero/office.webp',
     cta: '/products?category=plants',
   },
   {
-    title: 'Outdoor Landscaping',
-    subtitle: 'Transform your outdoor environment',
+    title: 'Green Walls',
+    subtitle: 'Artificial plants and green wall solutions',
     description:
-      'Premium landscaping solutions for villas, rooftops, and commercial spaces.',
-    image: '/images/hero/outdoor.jpg',
-    cta: '/services',
-  },
-  {
-    title: 'Planters & Decor',
-    subtitle: 'Design that complements greenery',
-    description:
-      'Modern planters and decor elements crafted for premium spaces.',
+      'Maintenance-free artificial plants and green walls that add greenery where natural planting is not practical.',
     image: '/images/hero/planters.jpg',
-    cta: '/products?category=planters',
+    cta: '/services',
   },
 ]
 
@@ -108,7 +108,7 @@ export default function HeroSection() {
               <Link href={slides[index].cta} className="inline-block group">
                 <div className="px-8 py-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center gap-3 hover:bg-white hover:text-stone-950 transition-all duration-500">
                   <span className="text-sm font-medium tracking-wide">
-                    Explore Collection
+                    View Services
                   </span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </div>

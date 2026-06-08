@@ -20,30 +20,30 @@ export default function WhyChooseUs() {
   const benefits: Benefit[] = [
     {
       icon: <ShieldCheck className="w-5 h-5" />,
-      title: "Free Plant Replacement",
+      title: "AMC Maintenance Plans",
       description:
-        "We replace unhealthy plants at no cost, ensuring your space always looks fresh and vibrant.",
+        "Annual maintenance contracts for indoor and outdoor plants — scheduled visits, replacements, and care included.",
       number: "01",
     },
     {
       icon: <Sparkles className="w-5 h-5" />,
-      title: "Custom Plant Styling",
+      title: "UAE Climate Expertise",
       description:
-        "Each project is carefully designed to match your interior, architecture, and brand identity.",
+        "We select plants, materials, and irrigation methods suited to the local climate so your landscape stays healthy.",
       number: "02",
     },
     {
       icon: <RefreshCcw className="w-5 h-5" />,
-      title: "Scheduled Maintenance",
+      title: "Free Plant Replacement",
       description:
-        "Regular care including watering, pruning, and monitoring for long-term plant health.",
+        "Under our maintenance contracts, unhealthy plants are replaced at no extra cost to keep your space looking fresh.",
       number: "03",
     },
     {
       icon: <Leaf className="w-5 h-5" />,
-      title: "Premium Plant Quality",
+      title: "Complete Plant Solutions",
       description:
-        "We source and maintain high-quality plants suited for indoor and outdoor environments.",
+        "Indoor plants, outdoor landscaping, artificial greenery, and green walls — all from one trusted team.",
       number: "04",
     },
   ];
@@ -89,8 +89,9 @@ export default function WhyChooseUs() {
           </h2>
 
           <p className="text-lg text-stone-500 font-light max-w-xl md:mx-auto leading-relaxed">
-            Proven experience, uncompromising quality, and the foundation of
-            long-term client trust.
+            Over a decade of hands-on experience in the UAE — reliable service,
+            healthy plants, and maintenance contracts that keep your greenery
+            looking its best.
           </p>
         </motion.div>
 
@@ -149,7 +150,7 @@ export default function WhyChooseUs() {
           <Link href="/contact">
             <button className="group inline-flex items-center gap-2 text-sm font-medium text-stone-900 uppercase tracking-widest">
               <span className="underline underline-offset-4 decoration-stone-300 group-hover:decoration-stone-900 transition-colors duration-300">
-                Start Your Project
+                Get a Free Quote
               </span>
               <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </button>

@@ -2,6 +2,14 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+
+import {
+  FaInstagram,
+  FaFacebookF,
+  FaPinterestP,
+  FaXTwitter,
+} from "react-icons/fa6";
+
 import { Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
@@ -31,9 +39,9 @@ export default function Footer() {
               </p>
 
               <p className="text-stone-400 font-light leading-relaxed max-w-sm">
-                Bespoke landscaping and botanical solutions across the UAE. We
-                deliver uncompromising quality, sustainability, and
-                architectural elegance.
+                Landscaping with AMC, indoor plants, and green wall solutions
+                across the UAE. Quality plants, reliable maintenance, and
+                service you can count on.
               </p>
             </motion.div>
           </div>
@@ -87,24 +95,16 @@ export default function Footer() {
                     <Phone size={14} />
                   </div>
                   <div className="space-y-1.5 pt-1 group-hover:text-white transition-colors duration-300">
-                    <p className="flex justify-between w-full max-w-[200px]">
-                      <span className="text-stone-500">Mobile:</span>
-                      <span>+971 50 7750967</span>
-                    </p>
-                    <p className="flex justify-between w-full max-w-[200px]">
-                      <span className="text-stone-500">Tel:</span>
-                      <span>+971 6 7415779</span>
-                    </p>
-                    <p className="flex justify-between w-full max-w-[200px]">
-                      <span className="text-stone-500">Fax:</span>
-                      <span>+971 6 7415790</span>
+                    <p className="flex justify-between w-full max-w-[220px]">
+                      <span className="text-stone-500">Mob:</span>
+                      <span>+91 85474 16951</span>
                     </p>
                   </div>
                 </div>
 
                 {/* Email */}
                 <a
-                  href="mailto:sales@shaheenflowers.com"
+                  href="mailto:enquiry@shaheenflowers.ae"
                   className="flex items-center gap-4 group"
                 >
                   <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-stone-500 group-hover:bg-white group-hover:text-stone-900 transition-all duration-500 shrink-0">
@@ -123,6 +123,44 @@ export default function Footer() {
                   <p className="group-hover:text-white transition-colors duration-300">
                     P.O. Box 13019, Ajman, UAE
                   </p>
+                </div>
+                {/* Social Links */}
+                <div className="flex items-center gap-4 px-12">
+                  <a
+                    href="https://www.instagram.com/shaheenflowers/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white transition-colors duration-300"
+                  >
+                    <FaInstagram size={16} />
+                  </a>
+
+                  <a
+                    href="https://www.facebook.com/Shaheenflowers.uae"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white transition-colors duration-300"
+                  >
+                    <FaFacebookF size={16} />
+                  </a>
+
+                  <a
+                    href="https://www.pinterest.com/shaheenflowersllc/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white transition-colors duration-300"
+                  >
+                    <FaPinterestP size={16} />
+                  </a>
+
+                  <a
+                    href="https://x.com/shaheenflowersl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white transition-colors duration-300"
+                  >
+                    <FaXTwitter size={16} />
+                  </a>
                 </div>
               </div>
             </motion.div>
