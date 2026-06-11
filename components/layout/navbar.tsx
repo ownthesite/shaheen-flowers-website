@@ -117,7 +117,7 @@ export default function Navbar() {
               <span className="font-semibold text-stone-900">Shaheen</span>
 
               <span className="font-serif italic text-emerald-700 ml-1.5">
-                Flower LLC
+                Flowers LLC
               </span>
 
 
