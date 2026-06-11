@@ -31,11 +31,11 @@ export default function Footer() {
               <h2 className="text-4xl md:text-5xl font-light tracking-tight mb-2">
                 Shaheen{" "}
                 <span className="font-serif italic text-stone-400">
-                  Flowers
+                  Flowers LLC
                 </span>
               </h2>
               <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-stone-600 mb-8">
-                & Ornamental Plants Trdg.
+                Landscaping • AMC • Indoor Plants
               </p>
 
               <p className="text-stone-400 font-light leading-relaxed max-w-sm">
@@ -94,11 +94,13 @@ export default function Footer() {
                   <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-stone-500 group-hover:bg-white group-hover:text-stone-900 transition-all duration-500 shrink-0">
                     <Phone size={14} />
                   </div>
-                  <div className="space-y-1.5 pt-1 group-hover:text-white transition-colors duration-300">
-                    <p className="flex justify-between w-full max-w-[220px]">
-                      <span className="text-stone-500">Mob:</span>
-                      <span>+91 85474 16951</span>
-                    </p>
+                  <div className="flex gap-4 pt-1 group-hover:text-white transition-colors duration-300">
+                    <span className="text-stone-500 shrink-0">Mob:</span>
+
+                    <div className="flex flex-col">
+                      <span>+971 507750967</span>
+                      <span>+971 552039009</span>
+                    </div>
                   </div>
                 </div>
 
@@ -121,7 +123,7 @@ export default function Footer() {
                     <MapPin size={14} />
                   </div>
                   <p className="group-hover:text-white transition-colors duration-300">
-                    P.O. Box 13019, Ajman, UAE
+                    Ajman & Dubai, UAE P.O. Box 13019
                   </p>
                 </div>
                 {/* Social Links */}
@@ -176,7 +178,7 @@ export default function Footer() {
           className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] uppercase tracking-widest text-stone-600 font-medium"
         >
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
-            <p>© {year} Shaheen Flowers. All rights reserved.</p>
+            <p>© {year} Shaheen Flowers LLC. All rights reserved.</p>
 
             <div className="hidden md:block w-[1px] h-3 bg-white/10" />
 
@@ -205,7 +207,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="group flex items-center gap-1 hover:text-stone-300 transition-colors duration-300"
           >
-            Digital Experience by{" "}
+            Website by{" "}
             <span className="text-stone-400 group-hover:text-white transition-colors duration-300">
               OwnTheSite
             </span>

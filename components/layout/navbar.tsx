@@ -25,7 +25,7 @@ const NAV_LINKS: NavItem[] = [
   { href: "/services", label: "Services" },
   { href: "/products", label: "Products" },
   { href: "/portfolio", label: "Portfolio" },
-  { href: "/contact", label: "Contact" }, 
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -105,19 +105,23 @@ export default function Navbar() {
                 transition-[height] duration-300
                 ${isScrolled ? "h-10" : "h-12"}
               `}
-            />    
+            />
 
             <div
               className={`
-                flex items-baseline tracking-tight text-stone-900
-                transition-[font-size] duration-300
-                ${isScrolled ? "text-xl" : "text-2xl"}
-              `}
+    flex items-baseline tracking-tight
+    transition-[font-size] duration-300
+    ${isScrolled ? "text-xl" : "text-2xl"}
+  `}
             >
-              <span className="font-semibold tracking-[-0.02em]">Shaheen</span>
+              <span className="font-semibold text-stone-900">Shaheen</span>
 
-              <span className="italic font-serif text-emerald-800 ml-1.5">
-                Flowers
+              <span className="font-serif italic text-emerald-700 ml-1.5">
+                Flower
+              </span>
+
+              <span className="text-xs uppercase tracking-widest text-stone-500 ml-1">
+                LLC
               </span>
             </div>
           </Link>

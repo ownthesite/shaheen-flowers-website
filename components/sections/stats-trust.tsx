@@ -39,7 +39,7 @@ type Stat = {
 export default function StatsTrust() {
   const stats: Stat[] = [
     { number: 300, label: "Luxury Projects Completed", suffix: "+" },
-    { number: 12, label: "Years of Expertise", suffix: "+" },
+    { number: 16, label: "Years of Expertise", suffix: "+" },
     { number: 50, label: "Custom Designs Delivered", suffix: "+" },
     { number: 98, label: "Client Satisfaction Rate", suffix: "%" },
   ];
