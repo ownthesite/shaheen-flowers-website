@@ -14,7 +14,7 @@ import {
 import { motion } from "framer-motion";
 
 // --- ANIMATION VARIANTS ---
-const fadeUp = {
+const fadeUp: any = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,

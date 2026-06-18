@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 // --- ANIMATION VARIANTS ---
-const fadeUp = {
+const fadeUp: any = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
@@ -22,7 +22,6 @@ const fadeUp = {
     transition: { duration: 0.6, ease: "easeOut" },
   },
 };
-
 const viewportConfig = { once: true, margin: "-100px" };
 
 // --- DATA ARRAYS ---
