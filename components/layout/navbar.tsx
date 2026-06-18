@@ -22,9 +22,31 @@ const NAV_LINKS: NavItem[] = [
   { href: "/", label: "Home" },
   { href: "/landscaping-with-amc-uae", label: "Landscaping with AMC UAE" },
   { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
+  {
+    href: "/services",
+    label: "Services",
+    submenu: [
+      { href: "/services", label: "All Services" },
+      {
+        href: "/services/indoor-plants-supply",
+        label: "Indoor Plants & Pots Supply",
+      },
+      {
+        href: "/services/indoor-plants-maintenance",
+        label: "Indoor Plants Maintenance with AMC",
+      },
+      {
+        href: "/services/outdoor-landscaping",
+        label: "Outdoor Landscaping with AMC",
+      },
+      {
+        href: "/services/artificial-plants-green-walls",
+        label: "Artificial Plants & Green Walls",
+      },
+    ],
+  },
   { href: "/products", label: "Products" },
-  { href: "/portfolio", label: "Portfolio" },
+  { href: "/portfolio", label: "Blogs" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -119,8 +141,6 @@ export default function Navbar() {
               <span className="font-serif italic text-emerald-700 ml-1.5">
                 Flowers LLC
               </span>
-
-
             </div>
           </Link>
 
@@ -310,18 +330,14 @@ export default function Navbar() {
       {/* MOBILE MENU */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <motion.div // Overlay
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="
-              fixed inset-0 z-[80]
-              bg-black/40 backdrop-blur-sm
-              md:hidden
-            "
+            className="fixed inset-0 z-[80] bg-black/40 backdrop-blur-sm md:hidden"
           >
-            <motion.div
+            <motion.div // Mobile menu panel
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
@@ -330,17 +346,18 @@ export default function Navbar() {
                 damping: 28,
                 stiffness: 260,
               }}
-              className="
-                absolute inset-y-0 right-0
-                w-full max-w-sm
-                bg-white shadow-xl
-                flex flex-col
-              "
+              className="absolute inset-y-0 right-0 w-full max-w-sm bg-white shadow-xl flex flex-col"
             >
               <div className="flex flex-col h-full overflow-y-auto px-6 pt-28 pb-8">
                 <div className="flex flex-col gap-2">
                   {NAV_LINKS.map((link, index) => {
-                    const isActive = pathname === link.href;
+                    const hasSubmenu = Boolean(link.submenu);
+                    const isParentActive =
+                      pathname === link.href ||
+                      (hasSubmenu &&
+                        link.submenu!.some(
+                          (subItem) => pathname === subItem.href,
+                        ));
 
                     return (
                       <motion.div
@@ -351,30 +368,109 @@ export default function Navbar() {
                           delay: 0.06 + index * 0.04,
                         }}
                       >
-                        <Link
-                          href={link.href}
-                          onClick={() => setIsOpen(false)}
-                          className={`
-                            flex items-center justify-between
-                            rounded-2xl px-4 py-4
-                            text-lg font-medium
-                            transition-colors duration-200
-                            ${
-                              isActive
-                                ? "bg-stone-50 text-emerald-800"
-                                : "text-stone-600 hover:bg-stone-50 hover:text-stone-900"
-                            }
-                          `}
-                        >
-                          <span>{link.label}</span>
+                        {hasSubmenu ? (
+                          <>
+                            <button
+                              onClick={() =>
+                                setOpenMenu(
+                                  openMenu === link.label ? null : link.label,
+                                )
+                              }
+                              className={`
+                                flex items-center justify-between w-full
+                                rounded-2xl px-4 py-4
+                                text-lg font-medium
+                                transition-colors duration-200
+                                ${
+                                  isParentActive || openMenu === link.label
+                                    ? "bg-stone-50 text-emerald-800"
+                                    : "text-stone-600 hover:bg-stone-50 hover:text-stone-900"
+                                }
+                              `}
+                            >
+                              <span>{link.label}</span>
+                              <ChevronDown
+                                size={18}
+                                className={`
+                                  transition-transform duration-200
+                                  ${openMenu === link.label ? "rotate-180" : ""}
+                                  ${isParentActive ? "text-emerald-800" : "text-stone-400"}
+                                `}
+                              />
+                            </button>
 
-                          <ArrowRight
-                            size={18}
-                            className={
-                              isActive ? "text-emerald-800" : "text-stone-400"
-                            }
-                          />
-                        </Link>
+                            <AnimatePresence>
+                              {openMenu === link.label && (
+                                <motion.div
+                                  initial={{ opacity: 0, height: 0 }}
+                                  animate={{ opacity: 1, height: "auto" }}
+                                  exit={{ opacity: 0, height: 0 }}
+                                  transition={{ duration: 0.2 }}
+                                  className="ml-4 mt-2 flex flex-col gap-1" // Indent submenu
+                                >
+                                  {link.submenu!.map((subItem) => {
+                                    const isSubItemActive =
+                                      pathname === subItem.href;
+                                    return (
+                                      <Link
+                                        key={subItem.href}
+                                        href={subItem.href}
+                                        onClick={() => setIsOpen(false)} // Close entire mobile menu on sub-item click
+                                        className={`
+                                          flex items-center justify-between
+                                          rounded-xl px-4 py-3
+                                          text-base font-normal
+                                          transition-colors duration-200
+                                          ${
+                                            isSubItemActive
+                                              ? "bg-stone-100 text-emerald-700"
+                                              : "text-stone-500 hover:bg-stone-50 hover:text-stone-800"
+                                          }
+                                        `}
+                                      >
+                                        <span>{subItem.label}</span>
+                                        <ArrowRight
+                                          size={16}
+                                          className={
+                                            isSubItemActive
+                                              ? "text-emerald-700"
+                                              : "text-stone-300"
+                                          }
+                                        />
+                                      </Link>
+                                    );
+                                  })}
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </>
+                        ) : (
+                          <Link
+                            href={link.href}
+                            onClick={() => setIsOpen(false)}
+                            className={`
+                              flex items-center justify-between
+                              rounded-2xl px-4 py-4
+                              text-lg font-medium
+                              transition-colors duration-200
+                              ${
+                                isParentActive
+                                  ? "bg-stone-50 text-emerald-800"
+                                  : "text-stone-600 hover:bg-stone-50 hover:text-stone-900"
+                              }
+                            `}
+                          >
+                            <span>{link.label}</span>
+                            <ArrowRight
+                              size={18}
+                              className={
+                                isParentActive
+                                  ? "text-emerald-800"
+                                  : "text-stone-400"
+                              }
+                            />
+                          </Link>
+                        )}
                       </motion.div>
                     );
                   })}
@@ -385,12 +481,7 @@ export default function Navbar() {
                   <Link
                     href="/contact"
                     onClick={() => setIsOpen(false)}
-                    className="
-                      flex items-center justify-center
-                      w-full rounded-full
-                      bg-stone-900
-                      py-4 text-base font-medium text-white
-                    "
+                    className="flex items-center justify-center w-full rounded-full bg-stone-900 py-4 text-base font-medium text-white"
                   >
                     Get a Quote
                   </Link>

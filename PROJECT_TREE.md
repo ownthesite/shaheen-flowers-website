@@ -3,19 +3,27 @@ shaheen-flowers-website
 ├── README.md
 ├── app
 │   ├── about
+│   │   ├── layout.tsx
 │   │   └── page.tsx
 │   ├── contact
+│   │   ├── layout.tsx
 │   │   └── page.tsx
 │   ├── globals.css
+│   ├── landscaping-with-amc-uae
+│   │   ├── layout.tsx
+│   │   └── page.tsx
 │   ├── layout.tsx
 │   ├── page.tsx
 │   ├── portfolio
+│   │   ├── layout.tsx
 │   │   └── page.tsx
 │   ├── privacy-policy
 │   │   └── page.tsx
 │   ├── products
+│   │   ├── layout.tsx
 │   │   └── page.tsx
 │   ├── services
+│   │   ├── layout.tsx
 │   │   └── page.tsx
 │   ├── sitemap.ts
 │   └── terms-and-conditions
@@ -103,6 +111,7 @@ shaheen-flowers-website
 ├── lib
 │   ├── animations.ts
 │   ├── products.ts
+│   ├── seo.ts
 │   └── utils.ts
 ├── my-project@0.1.0
 ├── next
