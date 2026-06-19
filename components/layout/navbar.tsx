@@ -46,7 +46,7 @@ const NAV_LINKS: NavItem[] = [
     ],
   },
   { href: "/products", label: "Products" },
-  { href: "/portfolio", label: "Blogs" },
+  { href: "/blogs", label: "Blogs" },
   { href: "/contact", label: "Contact" },
 ];
 

@@ -5,6 +5,29 @@ shaheen-flowers-website
 │   ├── about
 │   │   ├── layout.tsx
 │   │   └── page.tsx
+│   ├── admin
+│   │   ├── blogs
+│   │   │   ├── new
+│   │   │   │   └── page.tsx
+│   │   │   └── page.tsx
+│   │   └── login
+│   │       └── page.tsx
+│   ├── api
+│   │   ├── admin
+│   │   │   └── login
+│   │   │       └── route.ts
+│   │   ├── blogs
+│   │   │   └── create
+│   │   │       └── route.ts
+│   │   ├── test-db
+│   │   │   └── route.ts
+│   │   └── upload
+│   │       └── route.ts
+│   ├── blogs
+│   │   ├── [slug]
+│   │   │   └── page.tsx
+│   │   ├── layout.tsx
+│   │   └── page.tsx
 │   ├── contact
 │   │   ├── layout.tsx
 │   │   └── page.tsx
@@ -14,16 +37,21 @@ shaheen-flowers-website
 │   │   └── page.tsx
 │   ├── layout.tsx
 │   ├── page.tsx
-│   ├── portfolio
-│   │   ├── layout.tsx
-│   │   └── page.tsx
 │   ├── privacy-policy
 │   │   └── page.tsx
 │   ├── products
 │   │   ├── layout.tsx
 │   │   └── page.tsx
 │   ├── services
+│   │   ├── artificial-plants-green-walls
+│   │   │   └── page.tsx
+│   │   ├── indoor-plants-maintenance
+│   │   │   └── page.tsx
+│   │   ├── indoor-plants-supply
+│   │   │   └── page.tsx
 │   │   ├── layout.tsx
+│   │   ├── outdoor-landscaping
+│   │   │   └── page.tsx
 │   │   └── page.tsx
 │   ├── sitemap.ts
 │   └── terms-and-conditions
@@ -110,9 +138,13 @@ shaheen-flowers-website
 │   └── use-toast.ts
 ├── lib
 │   ├── animations.ts
+│   ├── blogs.ts
+│   ├── cloudinary.ts
+│   ├── neon.ts
 │   ├── products.ts
 │   ├── seo.ts
 │   └── utils.ts
+├── middleware.ts
 ├── my-project@0.1.0
 ├── next
 ├── next-env.d.ts
