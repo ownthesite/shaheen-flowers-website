@@ -1,12 +1,11 @@
 import { createBlog } from "@/lib/blogs";
+import { revalidatePath } from "next/cache";
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    console.log("Incoming blog:", body);
-
-    const result = await createBlog({
+    await createBlog({
       title: body.title,
       slug: body.slug,
       excerpt: body.excerpt,
@@ -16,16 +15,18 @@ export async function POST(req: Request) {
       meta_description: body.meta_description,
     });
 
-    console.log("Create result:", result);
+    revalidatePath("/blogs");
+    revalidatePath("/admin/blogs");
 
-    return Response.json({ success: true });
+    return Response.json({
+      success: true,
+    });
   } catch (error) {
-    console.error("BLOG CREATE ERROR:", error);
+    console.error(error);
 
     return Response.json(
       {
         success: false,
-        error: String(error),
       },
       { status: 500 }
     );
