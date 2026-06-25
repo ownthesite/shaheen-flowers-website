@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Shaheen Flowers offers landscaping with AMC in UAE, outdoor garden maintenance, indoor plants supply, and green wall solutions. Call +91 85474 16951 for a quote.",
+    "Shaheen Flowers offers landscaping with AMC in UAE, outdoor garden maintenance, indoor plants supply, and green wall solutions. Call +971 55 203 9009 for a quote.",
 
   keywords: defaultKeywords,
 
