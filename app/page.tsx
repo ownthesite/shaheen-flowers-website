@@ -19,7 +19,7 @@ export default function Home() {
       <ServicesOverview />
       <ProductsPreview />
       <WhyChooseUs />
-      <PortfolioPreview />
+      {/* <PortfolioPreview /> */}
       <Testimonials />
       <CTASection
         title="Talk to Our Team Today"

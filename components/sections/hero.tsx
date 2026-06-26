@@ -20,7 +20,7 @@ const slides = [
     subtitle: 'Indoor plants and pots supply in UAE',
     description:
       'Healthy indoor plants and decorative pots for offices, hotels, and homes — supplied and styled to suit your space.',
-    image: '/images/hero/office.webp',
+    image: '/images/hero/indoor.png',
     cta: '/products?category=plants',
   },
   {
@@ -28,7 +28,7 @@ const slides = [
     subtitle: 'Artificial plants and green wall solutions',
     description:
       'Maintenance-free artificial plants and green walls that add greenery where natural planting is not practical.',
-    image: '/images/hero/planters.jpg',
+    image: '/images/hero/planters.png',
     cta: '/services',
   },
 ]
@@ -47,7 +47,7 @@ export default function HeroSection() {
 
   return (
     <section className="relative h-screen w-full bg-stone-950 overflow-hidden">
-      
+
       {/* BACKGROUND IMAGES WITH SLOW ZOOM */}
       <AnimatePresence initial={false}>
         <motion.div
@@ -56,9 +56,9 @@ export default function HeroSection() {
           initial={{ opacity: 0, scale: 1.1 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ 
+          transition={{
             opacity: { duration: 1.2, ease: "easeInOut" },
-            scale: { duration: 6, ease: "linear" } 
+            scale: { duration: 6, ease: "linear" }
           }}
           className="absolute inset-0"
         >
@@ -123,7 +123,7 @@ export default function HeroSection() {
         <div className="text-white/60 text-xs font-medium tracking-widest tabular-nums">
           <span className="text-white">0{index + 1}</span> — 0{slides.length}
         </div>
-        
+
         <div className="flex gap-2">
           {slides.map((_, i) => (
             <button
@@ -132,7 +132,7 @@ export default function HeroSection() {
               className="py-2"
               aria-label={`Go to slide ${i + 1}`}
             >
-              <div 
+              <div
                 className={`h-[2px] rounded-full transition-all duration-500 ${
                   i === index ? 'w-8 bg-white' : 'w-4 bg-white/30 hover:bg-white/50'
                 }`}
