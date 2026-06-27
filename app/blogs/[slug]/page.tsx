@@ -125,33 +125,24 @@ export default async function BlogPage({ params }: Props) {
               ),
 
               // LISTS (Using the elegant em-dash style from the Services page)
+              // LISTS
               ul: ({ children }) => (
-                <ul className="space-y-3 mb-8 max-w-3xl">{children}</ul>
+                <ul className="space-y-3 mb-8 max-w-3xl list-none pl-0">
+                  {children}
+                </ul>
               ),
+
               ol: ({ children }) => (
-                <ol className="list-decimal list-inside space-y-3 mb-8 text-stone-600 font-light text-lg max-w-3xl marker:text-stone-400 marker:italic marker:font-serif">
+                <ol className="list-decimal pl-6 space-y-3 mb-8 text-stone-600 font-light text-lg max-w-3xl marker:text-stone-400 marker:italic marker:font-serif">
                   {children}
                 </ol>
               ),
-              li: ({ children, node }) => {
-                // Check if it's an unordered list to apply the custom em-dash
-                const isUnordered = node?.parent?.tagName === "ul";
 
-                return (
-                  <li
-                    className={`text-stone-600 font-light leading-relaxed text-lg ${isUnordered ? "flex gap-4" : ""}`}
-                  >
-                    {isUnordered && (
-                      <span className="text-stone-300 shrink-0 select-none">
-                        —
-                      </span>
-                    )}
-                    <span className={isUnordered ? "mt-0" : ""}>
-                      {children}
-                    </span>
-                  </li>
-                );
-              },
+              li: ({ children }) => (
+                <li className="text-stone-600 font-light leading-relaxed text-lg">
+                  {children}
+                </li>
+              ),
 
               // IMAGES
               img: ({ src, alt }) => (
