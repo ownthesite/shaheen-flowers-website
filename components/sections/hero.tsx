@@ -20,7 +20,7 @@ const slides = [
     subtitle: 'Indoor plants and pots supply in UAE',
     description:
       'Healthy indoor plants and decorative pots for offices, hotels, and homes — supplied and styled to suit your space.',
-    image: '/images/hero/indoor.png',
+    image: '/images/hero/indoor.webp',
     cta: '/products?category=plants',
   },
   {
