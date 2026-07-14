@@ -117,7 +117,7 @@ ${form.message}`;
     },
   };
 
-  
+
 
   return (
     <div className="bg-[#FAFAFA] min-h-screen">
@@ -227,7 +227,7 @@ ${form.message}`;
                       href="tel:+918547416951"
                       className="tracking-wide hover:text-stone-600 transition-colors"
                     >
-                      +91 85474 16951
+                      +971 55 203 9009
                     </a>
                   </div>
                 </motion.div>
